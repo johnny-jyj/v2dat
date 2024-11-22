@@ -12,7 +12,7 @@ wget https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/ge
 ./v2dat unpack geoip -o mosdns_config/mosdns_ip -f hk geoip.dat
 ./v2dat unpack geoip -o mosdns_config/mosdns_ip -f sg geoip.dat
 ./v2dat unpack geoip -o mosdns_config/mosdns_ip -f cn geoip.dat
-
+./v2dat unpack geoip -o mosdns_config/mosdns_ip -f uk geoip.dat
 
 ./v2dat unpack geosite  -o mosdns_config/mosdns_site -f cn geosite.dat
 ./v2dat unpack geosite  -o mosdns_config/mosdns_site -f category-games@cn geosite.dat
