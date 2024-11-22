@@ -33,8 +33,10 @@ jobs:
       uses: marvinpinto/action-automatic-releases@latest
       with:
         repo_token: "${{ secrets.GITHUB_TOKEN }}"
-        automatic_release_tag: ${{ env.ReleaseVersion }}
-        title: ${{ env.ReleaseVersion }}
+        automatic_release_tag: ${{ env.NOW }}
+        title: ${{ env.NOW }}
         prerelease: false
         files: |
           mosdns_config/*
+      env:
+          NOW: $(date +'%Y-%m-%dT%H:%M:%S')
