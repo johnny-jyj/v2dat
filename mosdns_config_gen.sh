@@ -5,7 +5,6 @@ mkdir mosdns_site
 wget https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geoip.dat
 wget https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geosite.dat
 cd ..
-ls -a
 
 ./v2dat unpack geoip -o mosdns_config/mosdns_ip -f us mosdns_config/geoip.dat
 ./v2dat unpack geoip -o mosdns_config/mosdns_ip -f ca mosdns_config/geoip.dat
