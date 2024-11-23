@@ -1,12 +1,12 @@
 # This workflow will build a golang project
 # For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-go
 
-name: Go
+name: mosdns_config
 
 on:
   schedule:
   # 定时任务，在每天的5点推送天气信息到邮箱
-    - cron: '50 10 * * *'
+    - cron: '5 11 * * *'
 
 jobs:
 
@@ -36,4 +36,4 @@ jobs:
         files: |
           mosdns_config/*
       env:
-          NOW: $(date +'%Y-%m-%dT%H:%M:%S')
+          NOW: $(date)
