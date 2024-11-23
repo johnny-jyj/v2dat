@@ -27,8 +27,9 @@ jobs:
       run: bash mosdns_config_gen.sh
 
     - name: get_time
-      run: TIME="$(TZ='Asia/Shanghai' date +'%Y-%m-%d %H:%M:%S')"
-           echo "TIME=$TIME" >> $GITHUB_ENV
+      run: |
+        TIME="$(TZ='Asia/Shanghai' date +'%Y-%m-%d %H:%M:%S')"
+        echo "TIME=$TIME" >> $GITHUB_ENV
      
     - name: Create GitHub release
       uses: marvinpinto/action-automatic-releases@latest
