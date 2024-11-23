@@ -28,7 +28,7 @@ jobs:
 
     - name: get_time
       run: |
-        TIME="$(TZ='Asia/Shanghai' date +%Y_%m_%d')"
+        TIME="$(TZ='Asia/Shanghai' date +'%Y_%m_%d')"
         echo "TIME=$TIME" >> $GITHUB_ENV
      
     - name: Create GitHub release
