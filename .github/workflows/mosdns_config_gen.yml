@@ -6,7 +6,7 @@ name: mosdns_config
 on:
   schedule:
   # 定时任务，在每天的5点推送天气信息到邮箱
-    - cron: '50 12 * * *'
+    - cron: '18 13 * * *'
 
 jobs:
 
@@ -28,7 +28,7 @@ jobs:
 
     - name: get_time
       run: |
-        TIME="$(TZ='Asia/Shanghai' date +'%Y_%m_%d')"
+        TIME="$(TZ='Asia/Shanghai' date +%Y%m%d')"
         echo "TIME=$TIME" >> $GITHUB_ENV
      
     - name: Create GitHub release
