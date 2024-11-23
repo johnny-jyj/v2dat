@@ -6,7 +6,7 @@ name: mosdns_config
 on:
   schedule:
   # 定时任务，在每天的5点推送天气信息到邮箱
-    - cron: '5 11 * * *'
+    - cron: '0 12 * * *'
 
 jobs:
 
@@ -26,14 +26,20 @@ jobs:
     - name: seting
       run: bash mosdns_config_gen.sh
 
+    - name: get_time
+      run: TIME="$(TZ='Asia/Shanghai' date +'%Y-%m-%d %H:%M:%S')"
+           echo "TIME=$TIME" >> $GITHUB_ENV
+     
     - name: Create GitHub release
       uses: marvinpinto/action-automatic-releases@latest
       with:
         repo_token: "${{ secrets.GITHUB_TOKEN }}"
-        automatic_release_tag: ${{ env.NOW }}
+        automatic_release_tag: ${{ env.TIME }}
         title: ${{ env.NOW }}
         prerelease: false
         files: |
           mosdns_config/*
-      env:
-          NOW: $(date)
+          mosdns_config/mosdns_ip/*
+          mosdns_config/mosdns_site/*
+
+          
