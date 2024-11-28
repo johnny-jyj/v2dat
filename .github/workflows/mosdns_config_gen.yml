@@ -5,8 +5,7 @@ name: mosdns_config
 
 on:
   schedule:
-  # 定时任务，在每天的5点推送天气信息到邮箱
-    - cron: '30 14 * * *'
+    - cron: '50 13 * * *'
 
 jobs:
 
