@@ -21,6 +21,8 @@ cd ..
 ./v2dat unpack geoip -o mosdns_config/mosdns_ip -f netflix mosdns_config/geoip.dat
 ./v2dat unpack geoip -o mosdns_config/mosdns_ip -f telegram mosdns_config/geoip.dat
 ./v2dat unpack geoip -o mosdns_config/mosdns_ip -f twitter mosdns_config/geoip.dat
+./v2dat unpack geoip -o mosdns_config/mosdns_ip -f private mosdns_config/geoip.dat
+
 
 ./v2dat unpack geosite  -o mosdns_config/mosdns_site -f cn mosdns_config/geosite.dat
 ./v2dat unpack geosite  -o mosdns_config/mosdns_site -f category-games@cn mosdns_config/geosite.dat
@@ -79,3 +81,4 @@ mv mosdns_config/mosdns_site/telegram.txt mosdns_config/mosdns_site/telegram_sit
 mv mosdns_config/mosdns_ip/telegram.txt mosdns_config/mosdns_ip/telegram_ip.txt
 mv mosdns_config/mosdns_site/twitter.txt mosdns_config/mosdns_site/twitter_site.txt
 mv mosdns_config/mosdns_ip/twitter.txt mosdns_config/mosdns_ip/twitter_ip.txt
+mv mosdns_config/mosdns_ip/private.txt mosdns_config/mosdns_ip/private_ip.txt
