@@ -47,6 +47,8 @@ cd ..
 ./v2dat unpack geosite  -o mosdns_config/mosdns_site -f nintendo mosdns_config/geosite.dat
 ./v2dat unpack geosite  -o mosdns_config/mosdns_site -f playstation mosdns_config/geosite.dat
 ./v2dat unpack geosite  -o mosdns_config/mosdns_site -f xbox mosdns_config/geosite.dat
+./v2dat unpack geosite  -o mosdns_config/mosdns_site -f steam mosdns_config/geosite.dat
+./v2dat unpack geosite  -o mosdns_config/mosdns_site -f steamunlocked mosdns_config/geosite.dat
 ./v2dat unpack geosite  -o mosdns_config/mosdns_site -f gfw mosdns_config/geosite.dat
 ./v2dat unpack geosite  -o mosdns_config/mosdns_site -f alibaba mosdns_config/geosite.dat
 ./v2dat unpack geosite  -o mosdns_config/mosdns_site -f alibabacloud mosdns_config/geosite.dat
