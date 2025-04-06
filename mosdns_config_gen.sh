@@ -27,6 +27,7 @@ cd ..
 ./v2dat unpack geosite  -o mosdns_config/mosdns_site -f cn mosdns_config/geosite.dat
 ./v2dat unpack geosite  -o mosdns_config/mosdns_site -f category-games@cn mosdns_config/geosite.dat
 ./v2dat unpack geosite  -o mosdns_config/mosdns_site -f category-games mosdns_config/geosite.dat
+./v2dat unpack geosite  -o mosdns_config/mosdns_site -f category-ads-all mosdns_config/geosite.dat
 ./v2dat unpack geosite  -o mosdns_config/mosdns_site -f apple-cn mosdns_config/geosite.dat
 ./v2dat unpack geosite  -o mosdns_config/mosdns_site -f tld-cn mosdns_config/geosite.dat
 ./v2dat unpack geosite  -o mosdns_config/mosdns_site -f icloud mosdns_config/geosite.dat
