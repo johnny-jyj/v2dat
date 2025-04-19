@@ -97,4 +97,4 @@ mv mosdns_config/mosdns_site/twitter.txt mosdns_config/mosdns_site/twitter_site.
 mv mosdns_config/mosdns_ip/twitter.txt mosdns_config/mosdns_ip/twitter_ip.txt
 mv mosdns_config/mosdns_ip/private.txt mosdns_config/mosdns_ip/private_ip.txt
 
-zip mosdns_rule.zip -r mosdns_config/
+zip -r mosdns_rule.zip mosdns_config/
