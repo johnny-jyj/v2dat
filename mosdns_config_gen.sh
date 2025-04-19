@@ -98,3 +98,4 @@ mv mosdns_config/mosdns_ip/twitter.txt mosdns_config/mosdns_ip/twitter_ip.txt
 mv mosdns_config/mosdns_ip/private.txt mosdns_config/mosdns_ip/private_ip.txt
 
 zip -r mosdns_rule.zip mosdns_config/
+cp mosdns_rule.zip mosdns_config/
