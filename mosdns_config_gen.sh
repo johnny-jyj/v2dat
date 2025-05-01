@@ -75,7 +75,7 @@ cd ..
 ./v2dat unpack geosite  -o mosdns_config/mosdns_site -f zhihu mosdns_config/geosite.dat
 ./v2dat unpack geosite  -o mosdns_config/mosdns_site -f huya mosdns_config/geosite.dat
 ./v2dat unpack geosite  -o mosdns_config/mosdns_site -f douyu mosdns_config/geosite.dat
-
+./v2dat unpack geosite  -o mosdns_config/mosdns_site -f dmm mosdns_config/geosite.dat
 
 mv mosdns_config/mosdns_site/cn.txt mosdns_config/mosdns_site/cn_site.txt
 mv mosdns_config/mosdns_ip/cn.txt mosdns_config/mosdns_ip/cn_ip.txt
