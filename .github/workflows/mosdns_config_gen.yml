@@ -5,7 +5,7 @@ name: mosdns_config
 
 on:
   schedule:
-    - cron: '25 9 * * *'
+    - cron: '00 18 * * *'
 
 jobs:
 
