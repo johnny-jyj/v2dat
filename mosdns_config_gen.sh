@@ -77,6 +77,7 @@ cd ..
 ./v2dat unpack geosite  -o mosdns_config/mosdns_site -f huya mosdns_config/geosite.dat
 ./v2dat unpack geosite  -o mosdns_config/mosdns_site -f douyu mosdns_config/geosite.dat
 
+./v2dat unpack geosite  -o mosdns_config/mosdns_site -f mega mosdns_config/geosite.dat
 
 ./v2dat unpack geosite  -o mosdns_config/mosdns_site -f dmm mosdns_config/geosite.dat
 ./v2dat unpack geosite  -o mosdns_config/mosdns_site -f abema mosdns_config/geosite.dat
