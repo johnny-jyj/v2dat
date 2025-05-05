@@ -56,6 +56,7 @@ cd ..
 ./v2dat unpack geosite  -o mosdns_config/mosdns_site -f steam mosdns_config/geosite.dat
 ./v2dat unpack geosite  -o mosdns_config/mosdns_site -f steamunlocked mosdns_config/geosite.dat
 ./v2dat unpack geosite  -o mosdns_config/mosdns_site -f gfw mosdns_config/geosite.dat
+./v2dat unpack geosite  -o mosdns_config/mosdns_site -f gravatar mosdns_config/geosite.dat
 ./v2dat unpack geosite  -o mosdns_config/mosdns_site -f alibaba mosdns_config/geosite.dat
 ./v2dat unpack geosite  -o mosdns_config/mosdns_site -f alibabacloud mosdns_config/geosite.dat
 ./v2dat unpack geosite  -o mosdns_config/mosdns_site -f aliyun mosdns_config/geosite.dat
