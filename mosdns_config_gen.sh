@@ -108,5 +108,13 @@ mv mosdns_config/mosdns_site/twitter.txt mosdns_config/mosdns_site/twitter_site.
 mv mosdns_config/mosdns_ip/twitter.txt mosdns_config/mosdns_ip/twitter_ip.txt
 mv mosdns_config/mosdns_ip/private.txt mosdns_config/mosdns_ip/private_ip.txt
 
+rm mosdns_config/geosite.dat
+rm mosdns_config/geoip.dat
 zip -r mosdns_rule.zip mosdns_config/
+
+cd mosdns_config
+wget https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geoip.dat
+wget https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geosite.dat
+cd ..
+
 cp mosdns_rule.zip mosdns_config/
