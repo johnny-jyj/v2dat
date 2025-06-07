@@ -70,6 +70,8 @@ cd ..
 ./v2dat unpack geosite  -o mosdns_config/mosdns_site -f tencent-ads mosdns_config/geosite.dat
 ./v2dat unpack geosite  -o mosdns_config/mosdns_site -f tencent-dev mosdns_config/geosite.dat
 ./v2dat unpack geosite  -o mosdns_config/mosdns_site -f tencent-games mosdns_config/geosite.dat
+./v2dat unpack geosite  -o mosdns_config/mosdns_site -f netease mosdns_config/geosite.dat
+./v2dat unpack geosite  -o mosdns_config/mosdns_site -f xunlei mosdns_config/geosite.dat
 ./v2dat unpack geosite  -o mosdns_config/mosdns_site -f bilibili mosdns_config/geosite.dat
 ./v2dat unpack geosite  -o mosdns_config/mosdns_site -f bilibili-game mosdns_config/geosite.dat
 ./v2dat unpack geosite  -o mosdns_config/mosdns_site -f bilibili2 mosdns_config/geosite.dat
@@ -83,6 +85,10 @@ cd ..
 ./v2dat unpack geosite  -o mosdns_config/mosdns_site -f huya mosdns_config/geosite.dat
 ./v2dat unpack geosite  -o mosdns_config/mosdns_site -f douyu mosdns_config/geosite.dat
 ./v2dat unpack geosite  -o mosdns_config/mosdns_site -f huawei mosdns_config/geosite.dat
+./v2dat unpack geosite  -o mosdns_config/mosdns_site -f xiaomi mosdns_config/geosite.dat
+./v2dat unpack geosite  -o mosdns_config/mosdns_site -f kingsoft mosdns_config/geosite.dat
+./v2dat unpack geosite  -o mosdns_config/mosdns_site -f lenovo mosdns_config/geosite.dat
+./v2dat unpack geosite  -o mosdns_config/mosdns_site -f xiaohongshu mosdns_config/geosite.dat
 
 ./v2dat unpack geosite  -o mosdns_config/mosdns_site -f mega mosdns_config/geosite.dat
 
