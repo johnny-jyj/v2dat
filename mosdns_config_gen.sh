@@ -85,7 +85,10 @@ cd ..
 ./v2dat unpack geosite  -o mosdns_config/mosdns_site -f huya mosdns_config/geosite.dat
 ./v2dat unpack geosite  -o mosdns_config/mosdns_site -f douyu mosdns_config/geosite.dat
 ./v2dat unpack geosite  -o mosdns_config/mosdns_site -f huawei mosdns_config/geosite.dat
+./v2dat unpack geosite  -o mosdns_config/mosdns_site -f huawei-dev mosdns_config/geosite.dat
+./v2dat unpack geosite  -o mosdns_config/mosdns_site -f huaweicloud mosdns_config/geosite.dat
 ./v2dat unpack geosite  -o mosdns_config/mosdns_site -f xiaomi mosdns_config/geosite.dat
+./v2dat unpack geosite  -o mosdns_config/mosdns_site -f oppo mosdns_config/geosite.dat
 ./v2dat unpack geosite  -o mosdns_config/mosdns_site -f kingsoft mosdns_config/geosite.dat
 ./v2dat unpack geosite  -o mosdns_config/mosdns_site -f lenovo mosdns_config/geosite.dat
 ./v2dat unpack geosite  -o mosdns_config/mosdns_site -f xiaohongshu mosdns_config/geosite.dat
