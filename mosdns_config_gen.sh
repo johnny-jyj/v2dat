@@ -41,7 +41,10 @@ cd ..
 ./v2dat unpack geosite  -o mosdns_config/mosdns_site -f jetbrains mosdns_config/geosite.dat
 ./v2dat unpack geosite  -o mosdns_config/mosdns_site -f jetbrains-ai mosdns_config/geosite.dat
 ./v2dat unpack geosite  -o mosdns_config/mosdns_site -f telegram mosdns_config/geosite.dat
+./v2dat unpack geosite  -o mosdns_config/mosdns_site -f whatsapp mosdns_config/geosite.dat
+./v2dat unpack geosite  -o mosdns_config/mosdns_site -f meta mosdns_config/geosite.dat
 ./v2dat unpack geosite  -o mosdns_config/mosdns_site -f twitter mosdns_config/geosite.dat
+./v2dat unpack geosite  -o mosdns_config/mosdns_site -f instagram mosdns_config/geosite.dat
 ./v2dat unpack geosite  -o mosdns_config/mosdns_site -f cloudflare mosdns_config/geosite.dat
 ./v2dat unpack geosite  -o mosdns_config/mosdns_site -f cloudfront mosdns_config/geosite.dat
 ./v2dat unpack geosite  -o mosdns_config/mosdns_site -f facebook mosdns_config/geosite.dat
