@@ -96,6 +96,9 @@ cd ..
 ./v2dat unpack geosite  -o mosdns_config/mosdns_site -f lenovo mosdns_config/geosite.dat
 ./v2dat unpack geosite  -o mosdns_config/mosdns_site -f xiaohongshu mosdns_config/geosite.dat
 
+./v2dat unpack geosite  -o mosdns_config/mosdns_site -f category-ai-!cn mosdns_config/geosite.dat
+./v2dat unpack geosite  -o mosdns_config/mosdns_site -f category-ai-cn mosdns_config/geosite.dat
+
 ./v2dat unpack geosite  -o mosdns_config/mosdns_site -f mega mosdns_config/geosite.dat
 
 ./v2dat unpack geosite  -o mosdns_config/mosdns_site -f dmm mosdns_config/geosite.dat
