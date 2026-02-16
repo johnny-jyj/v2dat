@@ -60,6 +60,9 @@ cd ..
 ./v2dat unpack geoip -o mosdns_config/mosdns_ip -f uz mosdns_config/geoip.dat  # 乌兹别克斯坦
 ./v2dat unpack geoip -o mosdns_config/mosdns_ip -f vn mosdns_config/geoip.dat  # 越南
 ./v2dat unpack geoip -o mosdns_config/mosdns_ip -f ye mosdns_config/geoip.dat  # 也门
+./v2dat unpack geoip -o mosdns_config/mosdns_ip -f cc mosdns_config/geoip.dat  # 科科斯（基林）群岛
+./v2dat unpack geoip -o mosdns_config/mosdns_ip -f cx mosdns_config/geoip.dat  # 圣诞岛
+./v2dat unpack geoip -o mosdns_config/mosdns_ip -f io mosdns_config/geoip.dat  # 英属印度洋领地
 
 # ============================================================
 # 欧洲 (Europe)
@@ -115,6 +118,7 @@ cd ..
 ./v2dat unpack geoip -o mosdns_config/mosdns_ip -f va mosdns_config/geoip.dat  # 梵蒂冈
 ./v2dat unpack geoip -o mosdns_config/mosdns_ip -f ax mosdns_config/geoip.dat  # 奥兰群岛
 ./v2dat unpack geoip -o mosdns_config/mosdns_ip -f fo mosdns_config/geoip.dat  # 法罗群岛
+./v2dat unpack geoip -o mosdns_config/mosdns_ip -f sj mosdns_config/geoip.dat  # 斯瓦尔巴和扬马延
 
 # ============================================================
 # 北美洲 (North America)
@@ -193,14 +197,14 @@ cd ..
 ./v2dat unpack geoip -o mosdns_config/mosdns_ip -f cf mosdns_config/geoip.dat  # 中非共和国
 ./v2dat unpack geoip -o mosdns_config/mosdns_ip -f td mosdns_config/geoip.dat  # 乍得
 ./v2dat unpack geoip -o mosdns_config/mosdns_ip -f km mosdns_config/geoip.dat  # 科摩罗
-./v2dat unpack geoip -o mosdns_config/mosdns_ip -f cg mosdns_config/geoip.dat  # 刚果（布）
-./v2dat unpack geoip -o mosdns_config/mosdns_ip -f cd mosdns_config/geoip.dat  # 刚果（金）
+./v2dat unpack geoip -o mosdns_config/mosdns_ip -f cg mosdns_config/geoip.dat  # 刚果（布）{刚果共和国}
+./v2dat unpack geoip -o mosdns_config/mosdns_ip -f cd mosdns_config/geoip.dat  # 刚果（金）{刚果民主共和国}
 ./v2dat unpack geoip -o mosdns_config/mosdns_ip -f ci mosdns_config/geoip.dat  # 科特迪瓦
 ./v2dat unpack geoip -o mosdns_config/mosdns_ip -f dj mosdns_config/geoip.dat  # 吉布提
 ./v2dat unpack geoip -o mosdns_config/mosdns_ip -f eg mosdns_config/geoip.dat  # 埃及
 ./v2dat unpack geoip -o mosdns_config/mosdns_ip -f gq mosdns_config/geoip.dat  # 赤道几内亚
 ./v2dat unpack geoip -o mosdns_config/mosdns_ip -f er mosdns_config/geoip.dat  # 厄立特里亚
-./v2dat unpack geoip -o mosdns_config/mosdns_ip -f sz mosdns_config/geoip.dat  # 斯威士兰
+./v2dat unpack geoip -o mosdns_config/mosdns_ip -f sz mosdns_config/geoip.dat  # 埃斯瓦蒂尼
 ./v2dat unpack geoip -o mosdns_config/mosdns_ip -f et mosdns_config/geoip.dat  # 埃塞俄比亚
 ./v2dat unpack geoip -o mosdns_config/mosdns_ip -f ga mosdns_config/geoip.dat  # 加蓬
 ./v2dat unpack geoip -o mosdns_config/mosdns_ip -f gm mosdns_config/geoip.dat  # 冈比亚
@@ -247,7 +251,7 @@ cd ..
 ./v2dat unpack geoip -o mosdns_config/mosdns_ip -f fj mosdns_config/geoip.dat  # 斐济
 ./v2dat unpack geoip -o mosdns_config/mosdns_ip -f ki mosdns_config/geoip.dat  # 基里巴斯
 ./v2dat unpack geoip -o mosdns_config/mosdns_ip -f mh mosdns_config/geoip.dat  # 马绍尔群岛
-./v2dat unpack geoip -o mosdns_config/mosdns_ip -f fm mosdns_config/geoip.dat  # 密克罗尼西亚
+./v2dat unpack geoip -o mosdns_config/mosdns_ip -f fm mosdns_config/geoip.dat  # 密克罗尼西亚联邦
 ./v2dat unpack geoip -o mosdns_config/mosdns_ip -f nr mosdns_config/geoip.dat  # 瑙鲁
 ./v2dat unpack geoip -o mosdns_config/mosdns_ip -f nz mosdns_config/geoip.dat  # 新西兰
 ./v2dat unpack geoip -o mosdns_config/mosdns_ip -f pw mosdns_config/geoip.dat  # 帕劳
@@ -267,6 +271,8 @@ cd ..
 ./v2dat unpack geoip -o mosdns_config/mosdns_ip -f tk mosdns_config/geoip.dat  # 托克劳
 ./v2dat unpack geoip -o mosdns_config/mosdns_ip -f wf mosdns_config/geoip.dat  # 瓦利斯和富图纳
 ./v2dat unpack geoip -o mosdns_config/mosdns_ip -f nf mosdns_config/geoip.dat  # 诺福克岛
+./v2dat unpack geoip -o mosdns_config/mosdns_ip -f pn mosdns_config/geoip.dat  # 皮特凯恩群岛
+./v2dat unpack geoip -o mosdns_config/mosdns_ip -f um mosdns_config/geoip.dat  # 美国本土外小岛屿
 
 # ============================================================
 # 南极洲 (Antarctica) — 科考站有网络
@@ -275,7 +281,7 @@ cd ..
 ./v2dat unpack geoip -o mosdns_config/mosdns_ip -f bv mosdns_config/geoip.dat  # 布韦岛
 ./v2dat unpack geoip -o mosdns_config/mosdns_ip -f gs mosdns_config/geoip.dat  # 南乔治亚和南桑威奇群岛
 ./v2dat unpack geoip -o mosdns_config/mosdns_ip -f hm mosdns_config/geoip.dat  # 赫德岛和麦克唐纳群岛
-./v2dat unpack geoip -o mosdns_config/mosdns_ip -f tf mosdns_config/geoip.dat  # 法属南部领地
+./v2dat unpack geoip -o mosdns_config/mosdns_ip -f tf mosdns_config/geoip.dat  # 法属南部和南极领地
 
 
 ./v2dat unpack geoip -o mosdns_config/mosdns_ip -f cloudflare mosdns_config/geoip.dat
