@@ -40,7 +40,10 @@ jobs:
         files: |
           mosdns_config/*
           mosdns_config/mosdns_ip/*
-          mosdns_config/mosdns_ip/asia/*
+          mosdns_config/mosdns_ip/asia/east_asia/*
+          mosdns_config/mosdns_ip/asia/southeast_asia/*
+          mosdns_config/mosdns_ip/asia/south_asia/*
+          mosdns_config/mosdns_ip/asia/middle_east/*
           mosdns_config/mosdns_ip/europe/*
           mosdns_config/mosdns_ip/north_america/*
           mosdns_config/mosdns_ip/south_america/*

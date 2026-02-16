@@ -1,6 +1,9 @@
 mkdir -p mosdns_config
 cd mosdns_config
-mkdir -p mosdns_ip/asia
+mkdir -p mosdns_ip/asia/east_asia
+mkdir -p mosdns_ip/asia/southeast_asia
+mkdir -p mosdns_ip/asia/south_asia
+mkdir -p mosdns_ip/asia/middle_east
 mkdir -p mosdns_ip/europe
 mkdir -p mosdns_ip/north_america
 mkdir -p mosdns_ip/south_america
@@ -15,60 +18,69 @@ cd ..
 # ============================================================
 # 亚洲 (Asia)
 # ============================================================
-./v2dat unpack geoip -o mosdns_config/mosdns_ip/asia -f af mosdns_config/geoip.dat  # 阿富汗
-./v2dat unpack geoip -o mosdns_config/mosdns_ip/asia -f am mosdns_config/geoip.dat  # 亚美尼亚
-./v2dat unpack geoip -o mosdns_config/mosdns_ip/asia -f az mosdns_config/geoip.dat  # 阿塞拜疆
-./v2dat unpack geoip -o mosdns_config/mosdns_ip/asia -f bh mosdns_config/geoip.dat  # 巴林
-./v2dat unpack geoip -o mosdns_config/mosdns_ip/asia -f bd mosdns_config/geoip.dat  # 孟加拉国
-./v2dat unpack geoip -o mosdns_config/mosdns_ip/asia -f bt mosdns_config/geoip.dat  # 不丹
-./v2dat unpack geoip -o mosdns_config/mosdns_ip/asia -f bn mosdns_config/geoip.dat  # 文莱
-./v2dat unpack geoip -o mosdns_config/mosdns_ip/asia -f kh mosdns_config/geoip.dat  # 柬埔寨
-./v2dat unpack geoip -o mosdns_config/mosdns_ip/asia -f cn mosdns_config/geoip.dat  # 中国
-./v2dat unpack geoip -o mosdns_config/mosdns_ip/asia -f cy mosdns_config/geoip.dat  # 塞浦路斯
-./v2dat unpack geoip -o mosdns_config/mosdns_ip/asia -f ge mosdns_config/geoip.dat  # 格鲁吉亚
-./v2dat unpack geoip -o mosdns_config/mosdns_ip/asia -f hk mosdns_config/geoip.dat  # 香港
-./v2dat unpack geoip -o mosdns_config/mosdns_ip/asia -f in mosdns_config/geoip.dat  # 印度
-./v2dat unpack geoip -o mosdns_config/mosdns_ip/asia -f id mosdns_config/geoip.dat  # 印度尼西亚
-./v2dat unpack geoip -o mosdns_config/mosdns_ip/asia -f ir mosdns_config/geoip.dat  # 伊朗
-./v2dat unpack geoip -o mosdns_config/mosdns_ip/asia -f iq mosdns_config/geoip.dat  # 伊拉克
-./v2dat unpack geoip -o mosdns_config/mosdns_ip/asia -f il mosdns_config/geoip.dat  # 以色列
-./v2dat unpack geoip -o mosdns_config/mosdns_ip/asia -f jp mosdns_config/geoip.dat  # 日本
-./v2dat unpack geoip -o mosdns_config/mosdns_ip/asia -f jo mosdns_config/geoip.dat  # 约旦
-./v2dat unpack geoip -o mosdns_config/mosdns_ip/asia -f kz mosdns_config/geoip.dat  # 哈萨克斯坦
-./v2dat unpack geoip -o mosdns_config/mosdns_ip/asia -f kw mosdns_config/geoip.dat  # 科威特
-./v2dat unpack geoip -o mosdns_config/mosdns_ip/asia -f kg mosdns_config/geoip.dat  # 吉尔吉斯斯坦
-./v2dat unpack geoip -o mosdns_config/mosdns_ip/asia -f la mosdns_config/geoip.dat  # 老挝
-./v2dat unpack geoip -o mosdns_config/mosdns_ip/asia -f lb mosdns_config/geoip.dat  # 黎巴嫩
-./v2dat unpack geoip -o mosdns_config/mosdns_ip/asia -f mo mosdns_config/geoip.dat  # 澳门
-./v2dat unpack geoip -o mosdns_config/mosdns_ip/asia -f my mosdns_config/geoip.dat  # 马来西亚
-./v2dat unpack geoip -o mosdns_config/mosdns_ip/asia -f mv mosdns_config/geoip.dat  # 马尔代夫
-./v2dat unpack geoip -o mosdns_config/mosdns_ip/asia -f mn mosdns_config/geoip.dat  # 蒙古
-./v2dat unpack geoip -o mosdns_config/mosdns_ip/asia -f mm mosdns_config/geoip.dat  # 缅甸
-./v2dat unpack geoip -o mosdns_config/mosdns_ip/asia -f np mosdns_config/geoip.dat  # 尼泊尔
-./v2dat unpack geoip -o mosdns_config/mosdns_ip/asia -f kp mosdns_config/geoip.dat  # 朝鲜
-./v2dat unpack geoip -o mosdns_config/mosdns_ip/asia -f om mosdns_config/geoip.dat  # 阿曼
-./v2dat unpack geoip -o mosdns_config/mosdns_ip/asia -f pk mosdns_config/geoip.dat  # 巴基斯坦
-./v2dat unpack geoip -o mosdns_config/mosdns_ip/asia -f ps mosdns_config/geoip.dat  # 巴勒斯坦
-./v2dat unpack geoip -o mosdns_config/mosdns_ip/asia -f ph mosdns_config/geoip.dat  # 菲律宾
-./v2dat unpack geoip -o mosdns_config/mosdns_ip/asia -f qa mosdns_config/geoip.dat  # 卡塔尔
-./v2dat unpack geoip -o mosdns_config/mosdns_ip/asia -f sa mosdns_config/geoip.dat  # 沙特阿拉伯
-./v2dat unpack geoip -o mosdns_config/mosdns_ip/asia -f sg mosdns_config/geoip.dat  # 新加坡
-./v2dat unpack geoip -o mosdns_config/mosdns_ip/asia -f kr mosdns_config/geoip.dat  # 韩国
-./v2dat unpack geoip -o mosdns_config/mosdns_ip/asia -f lk mosdns_config/geoip.dat  # 斯里兰卡
-./v2dat unpack geoip -o mosdns_config/mosdns_ip/asia -f sy mosdns_config/geoip.dat  # 叙利亚
-./v2dat unpack geoip -o mosdns_config/mosdns_ip/asia -f tw mosdns_config/geoip.dat  # 台湾
-./v2dat unpack geoip -o mosdns_config/mosdns_ip/asia -f tj mosdns_config/geoip.dat  # 塔吉克斯坦
-./v2dat unpack geoip -o mosdns_config/mosdns_ip/asia -f th mosdns_config/geoip.dat  # 泰国
-./v2dat unpack geoip -o mosdns_config/mosdns_ip/asia -f tl mosdns_config/geoip.dat  # 东帝汶
-./v2dat unpack geoip -o mosdns_config/mosdns_ip/asia -f tr mosdns_config/geoip.dat  # 土耳其
-./v2dat unpack geoip -o mosdns_config/mosdns_ip/asia -f tm mosdns_config/geoip.dat  # 土库曼斯坦
-./v2dat unpack geoip -o mosdns_config/mosdns_ip/asia -f ae mosdns_config/geoip.dat  # 阿联酋
-./v2dat unpack geoip -o mosdns_config/mosdns_ip/asia -f uz mosdns_config/geoip.dat  # 乌兹别克斯坦
-./v2dat unpack geoip -o mosdns_config/mosdns_ip/asia -f vn mosdns_config/geoip.dat  # 越南
-./v2dat unpack geoip -o mosdns_config/mosdns_ip/asia -f ye mosdns_config/geoip.dat  # 也门
-./v2dat unpack geoip -o mosdns_config/mosdns_ip/asia -f cc mosdns_config/geoip.dat  # 科科斯（基林）群岛
-./v2dat unpack geoip -o mosdns_config/mosdns_ip/asia -f cx mosdns_config/geoip.dat  # 圣诞岛
-./v2dat unpack geoip -o mosdns_config/mosdns_ip/asia -f io mosdns_config/geoip.dat  # 英属印度洋领地
+
+# 东亚 (East Asia)
+./v2dat unpack geoip -o mosdns_config/mosdns_ip/asia/east_asia -f cn mosdns_config/geoip.dat  # 中国
+./v2dat unpack geoip -o mosdns_config/mosdns_ip/asia/east_asia -f hk mosdns_config/geoip.dat  # 香港
+./v2dat unpack geoip -o mosdns_config/mosdns_ip/asia/east_asia -f mo mosdns_config/geoip.dat  # 澳门
+./v2dat unpack geoip -o mosdns_config/mosdns_ip/asia/east_asia -f tw mosdns_config/geoip.dat  # 台湾
+./v2dat unpack geoip -o mosdns_config/mosdns_ip/asia/east_asia -f jp mosdns_config/geoip.dat  # 日本
+./v2dat unpack geoip -o mosdns_config/mosdns_ip/asia/east_asia -f kr mosdns_config/geoip.dat  # 韩国
+./v2dat unpack geoip -o mosdns_config/mosdns_ip/asia/east_asia -f kp mosdns_config/geoip.dat  # 朝鲜
+./v2dat unpack geoip -o mosdns_config/mosdns_ip/asia/east_asia -f mn mosdns_config/geoip.dat  # 蒙古
+
+# 东南亚 (Southeast Asia)
+./v2dat unpack geoip -o mosdns_config/mosdns_ip/asia/southeast_asia -f bn mosdns_config/geoip.dat  # 文莱
+./v2dat unpack geoip -o mosdns_config/mosdns_ip/asia/southeast_asia -f kh mosdns_config/geoip.dat  # 柬埔寨
+./v2dat unpack geoip -o mosdns_config/mosdns_ip/asia/southeast_asia -f id mosdns_config/geoip.dat  # 印度尼西亚
+./v2dat unpack geoip -o mosdns_config/mosdns_ip/asia/southeast_asia -f la mosdns_config/geoip.dat  # 老挝
+./v2dat unpack geoip -o mosdns_config/mosdns_ip/asia/southeast_asia -f my mosdns_config/geoip.dat  # 马来西亚
+./v2dat unpack geoip -o mosdns_config/mosdns_ip/asia/southeast_asia -f mm mosdns_config/geoip.dat  # 缅甸
+./v2dat unpack geoip -o mosdns_config/mosdns_ip/asia/southeast_asia -f ph mosdns_config/geoip.dat  # 菲律宾
+./v2dat unpack geoip -o mosdns_config/mosdns_ip/asia/southeast_asia -f sg mosdns_config/geoip.dat  # 新加坡
+./v2dat unpack geoip -o mosdns_config/mosdns_ip/asia/southeast_asia -f th mosdns_config/geoip.dat  # 泰国
+./v2dat unpack geoip -o mosdns_config/mosdns_ip/asia/southeast_asia -f tl mosdns_config/geoip.dat  # 东帝汶
+./v2dat unpack geoip -o mosdns_config/mosdns_ip/asia/southeast_asia -f vn mosdns_config/geoip.dat  # 越南
+./v2dat unpack geoip -o mosdns_config/mosdns_ip/asia/southeast_asia -f cc mosdns_config/geoip.dat  # 科科斯（基林）群岛
+./v2dat unpack geoip -o mosdns_config/mosdns_ip/asia/southeast_asia -f cx mosdns_config/geoip.dat  # 圣诞岛
+
+# 南亚 (South Asia)
+./v2dat unpack geoip -o mosdns_config/mosdns_ip/asia/south_asia -f af mosdns_config/geoip.dat  # 阿富汗
+./v2dat unpack geoip -o mosdns_config/mosdns_ip/asia/south_asia -f bd mosdns_config/geoip.dat  # 孟加拉国
+./v2dat unpack geoip -o mosdns_config/mosdns_ip/asia/south_asia -f bt mosdns_config/geoip.dat  # 不丹
+./v2dat unpack geoip -o mosdns_config/mosdns_ip/asia/south_asia -f in mosdns_config/geoip.dat  # 印度
+./v2dat unpack geoip -o mosdns_config/mosdns_ip/asia/south_asia -f mv mosdns_config/geoip.dat  # 马尔代夫
+./v2dat unpack geoip -o mosdns_config/mosdns_ip/asia/south_asia -f np mosdns_config/geoip.dat  # 尼泊尔
+./v2dat unpack geoip -o mosdns_config/mosdns_ip/asia/south_asia -f pk mosdns_config/geoip.dat  # 巴基斯坦
+./v2dat unpack geoip -o mosdns_config/mosdns_ip/asia/south_asia -f lk mosdns_config/geoip.dat  # 斯里兰卡
+./v2dat unpack geoip -o mosdns_config/mosdns_ip/asia/south_asia -f io mosdns_config/geoip.dat  # 英属印度洋领地
+
+# 中东 / 西亚 / 中亚 (Middle East / Western Asia / Central Asia)
+./v2dat unpack geoip -o mosdns_config/mosdns_ip/asia/middle_east -f am mosdns_config/geoip.dat  # 亚美尼亚
+./v2dat unpack geoip -o mosdns_config/mosdns_ip/asia/middle_east -f az mosdns_config/geoip.dat  # 阿塞拜疆
+./v2dat unpack geoip -o mosdns_config/mosdns_ip/asia/middle_east -f bh mosdns_config/geoip.dat  # 巴林
+./v2dat unpack geoip -o mosdns_config/mosdns_ip/asia/middle_east -f cy mosdns_config/geoip.dat  # 塞浦路斯
+./v2dat unpack geoip -o mosdns_config/mosdns_ip/asia/middle_east -f ge mosdns_config/geoip.dat  # 格鲁吉亚
+./v2dat unpack geoip -o mosdns_config/mosdns_ip/asia/middle_east -f ir mosdns_config/geoip.dat  # 伊朗
+./v2dat unpack geoip -o mosdns_config/mosdns_ip/asia/middle_east -f iq mosdns_config/geoip.dat  # 伊拉克
+./v2dat unpack geoip -o mosdns_config/mosdns_ip/asia/middle_east -f il mosdns_config/geoip.dat  # 以色列
+./v2dat unpack geoip -o mosdns_config/mosdns_ip/asia/middle_east -f jo mosdns_config/geoip.dat  # 约旦
+./v2dat unpack geoip -o mosdns_config/mosdns_ip/asia/middle_east -f kz mosdns_config/geoip.dat  # 哈萨克斯坦
+./v2dat unpack geoip -o mosdns_config/mosdns_ip/asia/middle_east -f kw mosdns_config/geoip.dat  # 科威特
+./v2dat unpack geoip -o mosdns_config/mosdns_ip/asia/middle_east -f kg mosdns_config/geoip.dat  # 吉尔吉斯斯坦
+./v2dat unpack geoip -o mosdns_config/mosdns_ip/asia/middle_east -f lb mosdns_config/geoip.dat  # 黎巴嫩
+./v2dat unpack geoip -o mosdns_config/mosdns_ip/asia/middle_east -f om mosdns_config/geoip.dat  # 阿曼
+./v2dat unpack geoip -o mosdns_config/mosdns_ip/asia/middle_east -f ps mosdns_config/geoip.dat  # 巴勒斯坦
+./v2dat unpack geoip -o mosdns_config/mosdns_ip/asia/middle_east -f ph mosdns_config/geoip.dat  # 菲律宾
+./v2dat unpack geoip -o mosdns_config/mosdns_ip/asia/middle_east -f qa mosdns_config/geoip.dat  # 卡塔尔
+./v2dat unpack geoip -o mosdns_config/mosdns_ip/asia/middle_east -f sa mosdns_config/geoip.dat  # 沙特阿拉伯
+./v2dat unpack geoip -o mosdns_config/mosdns_ip/asia/middle_east -f sy mosdns_config/geoip.dat  # 叙利亚
+./v2dat unpack geoip -o mosdns_config/mosdns_ip/asia/middle_east -f tj mosdns_config/geoip.dat  # 塔吉克斯坦
+./v2dat unpack geoip -o mosdns_config/mosdns_ip/asia/middle_east -f tr mosdns_config/geoip.dat  # 土耳其
+./v2dat unpack geoip -o mosdns_config/mosdns_ip/asia/middle_east -f tm mosdns_config/geoip.dat  # 土库曼斯坦
+./v2dat unpack geoip -o mosdns_config/mosdns_ip/asia/middle_east -f ae mosdns_config/geoip.dat  # 阿联酋
+./v2dat unpack geoip -o mosdns_config/mosdns_ip/asia/middle_east -f uz mosdns_config/geoip.dat  # 乌兹别克斯坦
+./v2dat unpack geoip -o mosdns_config/mosdns_ip/asia/middle_east -f ye mosdns_config/geoip.dat  # 也门
 
 # ============================================================
 # 欧洲 (Europe)
@@ -387,7 +399,7 @@ cd ..
 ./v2dat unpack geosite  -o mosdns_config/mosdns_site -f line mosdns_config/geosite.dat
 
 mv mosdns_config/mosdns_site/cn.txt mosdns_config/mosdns_site/cn_site.txt
-mv mosdns_config/mosdns_ip/asia/cn.txt mosdns_config/mosdns_ip/cn_ip.txt
+mv mosdns_config/mosdns_ip/asia/east_asia/cn.txt mosdns_config/mosdns_ip/cn_ip.txt
 mv mosdns_config/mosdns_site/cloudflare.txt mosdns_config/mosdns_site/cloudflare_site.txt
 mv mosdns_config/mosdns_ip/cloudflare.txt mosdns_config/mosdns_ip/cloudflare_ip.txt
 mv mosdns_config/mosdns_site/cloudfront.txt mosdns_config/mosdns_site/cloudfront_site.txt
