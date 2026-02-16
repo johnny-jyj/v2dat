@@ -4,7 +4,10 @@ mkdir -p mosdns_ip/asia/east_asia
 mkdir -p mosdns_ip/asia/southeast_asia
 mkdir -p mosdns_ip/asia/south_asia
 mkdir -p mosdns_ip/asia/middle_east
-mkdir -p mosdns_ip/europe
+mkdir -p mosdns_ip/europe/western_europe
+mkdir -p mosdns_ip/europe/southern_europe
+mkdir -p mosdns_ip/europe/northern_europe
+mkdir -p mosdns_ip/europe/eastern_europe
 mkdir -p mosdns_ip/north_america
 mkdir -p mosdns_ip/south_america
 mkdir -p mosdns_ip/africa
@@ -85,58 +88,66 @@ cd ..
 # ============================================================
 # 欧洲 (Europe)
 # ============================================================
-./v2dat unpack geoip -o mosdns_config/mosdns_ip/europe -f al mosdns_config/geoip.dat  # 阿尔巴尼亚
-./v2dat unpack geoip -o mosdns_config/mosdns_ip/europe -f ad mosdns_config/geoip.dat  # 安道尔
-./v2dat unpack geoip -o mosdns_config/mosdns_ip/europe -f at mosdns_config/geoip.dat  # 奥地利
-./v2dat unpack geoip -o mosdns_config/mosdns_ip/europe -f by mosdns_config/geoip.dat  # 白俄罗斯
-./v2dat unpack geoip -o mosdns_config/mosdns_ip/europe -f be mosdns_config/geoip.dat  # 比利时
-./v2dat unpack geoip -o mosdns_config/mosdns_ip/europe -f ba mosdns_config/geoip.dat  # 波黑
-./v2dat unpack geoip -o mosdns_config/mosdns_ip/europe -f bg mosdns_config/geoip.dat  # 保加利亚
-./v2dat unpack geoip -o mosdns_config/mosdns_ip/europe -f hr mosdns_config/geoip.dat  # 克罗地亚
-./v2dat unpack geoip -o mosdns_config/mosdns_ip/europe -f cz mosdns_config/geoip.dat  # 捷克
-./v2dat unpack geoip -o mosdns_config/mosdns_ip/europe -f dk mosdns_config/geoip.dat  # 丹麦
-./v2dat unpack geoip -o mosdns_config/mosdns_ip/europe -f ee mosdns_config/geoip.dat  # 爱沙尼亚
-./v2dat unpack geoip -o mosdns_config/mosdns_ip/europe -f fi mosdns_config/geoip.dat  # 芬兰
-./v2dat unpack geoip -o mosdns_config/mosdns_ip/europe -f fr mosdns_config/geoip.dat  # 法国
-./v2dat unpack geoip -o mosdns_config/mosdns_ip/europe -f de mosdns_config/geoip.dat  # 德国
-./v2dat unpack geoip -o mosdns_config/mosdns_ip/europe -f gi mosdns_config/geoip.dat  # 直布罗陀
-./v2dat unpack geoip -o mosdns_config/mosdns_ip/europe -f gr mosdns_config/geoip.dat  # 希腊
-./v2dat unpack geoip -o mosdns_config/mosdns_ip/europe -f gg mosdns_config/geoip.dat  # 根西岛
-./v2dat unpack geoip -o mosdns_config/mosdns_ip/europe -f hu mosdns_config/geoip.dat  # 匈牙利
-./v2dat unpack geoip -o mosdns_config/mosdns_ip/europe -f is mosdns_config/geoip.dat  # 冰岛
-./v2dat unpack geoip -o mosdns_config/mosdns_ip/europe -f ie mosdns_config/geoip.dat  # 爱尔兰
-./v2dat unpack geoip -o mosdns_config/mosdns_ip/europe -f im mosdns_config/geoip.dat  # 马恩岛
-./v2dat unpack geoip -o mosdns_config/mosdns_ip/europe -f it mosdns_config/geoip.dat  # 意大利
-./v2dat unpack geoip -o mosdns_config/mosdns_ip/europe -f je mosdns_config/geoip.dat  # 泽西岛
-./v2dat unpack geoip -o mosdns_config/mosdns_ip/europe -f xk mosdns_config/geoip.dat  # 科索沃
-./v2dat unpack geoip -o mosdns_config/mosdns_ip/europe -f lv mosdns_config/geoip.dat  # 拉脱维亚
-./v2dat unpack geoip -o mosdns_config/mosdns_ip/europe -f li mosdns_config/geoip.dat  # 列支敦士登
-./v2dat unpack geoip -o mosdns_config/mosdns_ip/europe -f lt mosdns_config/geoip.dat  # 立陶宛
-./v2dat unpack geoip -o mosdns_config/mosdns_ip/europe -f lu mosdns_config/geoip.dat  # 卢森堡
-./v2dat unpack geoip -o mosdns_config/mosdns_ip/europe -f mt mosdns_config/geoip.dat  # 马耳他
-./v2dat unpack geoip -o mosdns_config/mosdns_ip/europe -f md mosdns_config/geoip.dat  # 摩尔多瓦
-./v2dat unpack geoip -o mosdns_config/mosdns_ip/europe -f mc mosdns_config/geoip.dat  # 摩纳哥
-./v2dat unpack geoip -o mosdns_config/mosdns_ip/europe -f me mosdns_config/geoip.dat  # 黑山
-./v2dat unpack geoip -o mosdns_config/mosdns_ip/europe -f nl mosdns_config/geoip.dat  # 荷兰
-./v2dat unpack geoip -o mosdns_config/mosdns_ip/europe -f mk mosdns_config/geoip.dat  # 北马其顿
-./v2dat unpack geoip -o mosdns_config/mosdns_ip/europe -f no mosdns_config/geoip.dat  # 挪威
-./v2dat unpack geoip -o mosdns_config/mosdns_ip/europe -f pl mosdns_config/geoip.dat  # 波兰
-./v2dat unpack geoip -o mosdns_config/mosdns_ip/europe -f pt mosdns_config/geoip.dat  # 葡萄牙
-./v2dat unpack geoip -o mosdns_config/mosdns_ip/europe -f ro mosdns_config/geoip.dat  # 罗马尼亚
-./v2dat unpack geoip -o mosdns_config/mosdns_ip/europe -f ru mosdns_config/geoip.dat  # 俄罗斯
-./v2dat unpack geoip -o mosdns_config/mosdns_ip/europe -f sm mosdns_config/geoip.dat  # 圣马力诺
-./v2dat unpack geoip -o mosdns_config/mosdns_ip/europe -f rs mosdns_config/geoip.dat  # 塞尔维亚
-./v2dat unpack geoip -o mosdns_config/mosdns_ip/europe -f sk mosdns_config/geoip.dat  # 斯洛伐克
-./v2dat unpack geoip -o mosdns_config/mosdns_ip/europe -f si mosdns_config/geoip.dat  # 斯洛文尼亚
-./v2dat unpack geoip -o mosdns_config/mosdns_ip/europe -f es mosdns_config/geoip.dat  # 西班牙
-./v2dat unpack geoip -o mosdns_config/mosdns_ip/europe -f se mosdns_config/geoip.dat  # 瑞典
-./v2dat unpack geoip -o mosdns_config/mosdns_ip/europe -f ch mosdns_config/geoip.dat  # 瑞士
-./v2dat unpack geoip -o mosdns_config/mosdns_ip/europe -f ua mosdns_config/geoip.dat  # 乌克兰
-./v2dat unpack geoip -o mosdns_config/mosdns_ip/europe -f gb mosdns_config/geoip.dat  # 英国
-./v2dat unpack geoip -o mosdns_config/mosdns_ip/europe -f va mosdns_config/geoip.dat  # 梵蒂冈
-./v2dat unpack geoip -o mosdns_config/mosdns_ip/europe -f ax mosdns_config/geoip.dat  # 奥兰群岛
-./v2dat unpack geoip -o mosdns_config/mosdns_ip/europe -f fo mosdns_config/geoip.dat  # 法罗群岛
-./v2dat unpack geoip -o mosdns_config/mosdns_ip/europe -f sj mosdns_config/geoip.dat  # 斯瓦尔巴和扬马延
+
+# 西欧 (Western Europe)
+./v2dat unpack geoip -o mosdns_config/mosdns_ip/europe/western_europe -f at mosdns_config/geoip.dat  # 奥地利
+./v2dat unpack geoip -o mosdns_config/mosdns_ip/europe/western_europe -f be mosdns_config/geoip.dat  # 比利时
+./v2dat unpack geoip -o mosdns_config/mosdns_ip/europe/western_europe -f fr mosdns_config/geoip.dat  # 法国
+./v2dat unpack geoip -o mosdns_config/mosdns_ip/europe/western_europe -f de mosdns_config/geoip.dat  # 德国
+./v2dat unpack geoip -o mosdns_config/mosdns_ip/europe/western_europe -f ie mosdns_config/geoip.dat  # 爱尔兰
+./v2dat unpack geoip -o mosdns_config/mosdns_ip/europe/western_europe -f li mosdns_config/geoip.dat  # 列支敦士登
+./v2dat unpack geoip -o mosdns_config/mosdns_ip/europe/western_europe -f lu mosdns_config/geoip.dat  # 卢森堡
+./v2dat unpack geoip -o mosdns_config/mosdns_ip/europe/western_europe -f mc mosdns_config/geoip.dat  # 摩纳哥
+./v2dat unpack geoip -o mosdns_config/mosdns_ip/europe/western_europe -f nl mosdns_config/geoip.dat  # 荷兰
+./v2dat unpack geoip -o mosdns_config/mosdns_ip/europe/western_europe -f ch mosdns_config/geoip.dat  # 瑞士
+./v2dat unpack geoip -o mosdns_config/mosdns_ip/europe/western_europe -f gb mosdns_config/geoip.dat  # 英国
+
+# 南欧 (Southern Europe)
+./v2dat unpack geoip -o mosdns_config/mosdns_ip/europe/southern_europe -f al mosdns_config/geoip.dat  # 阿尔巴尼亚
+./v2dat unpack geoip -o mosdns_config/mosdns_ip/europe/southern_europe -f ad mosdns_config/geoip.dat  # 安道尔
+./v2dat unpack geoip -o mosdns_config/mosdns_ip/europe/southern_europe -f ba mosdns_config/geoip.dat  # 波黑
+./v2dat unpack geoip -o mosdns_config/mosdns_ip/europe/southern_europe -f hr mosdns_config/geoip.dat  # 克罗地亚
+./v2dat unpack geoip -o mosdns_config/mosdns_ip/europe/southern_europe -f gi mosdns_config/geoip.dat  # 直布罗陀
+./v2dat unpack geoip -o mosdns_config/mosdns_ip/europe/southern_europe -f gr mosdns_config/geoip.dat  # 希腊
+./v2dat unpack geoip -o mosdns_config/mosdns_ip/europe/southern_europe -f it mosdns_config/geoip.dat  # 意大利
+./v2dat unpack geoip -o mosdns_config/mosdns_ip/europe/southern_europe -f mt mosdns_config/geoip.dat  # 马耳他
+./v2dat unpack geoip -o mosdns_config/mosdns_ip/europe/southern_europe -f me mosdns_config/geoip.dat  # 黑山
+./v2dat unpack geoip -o mosdns_config/mosdns_ip/europe/southern_europe -f mk mosdns_config/geoip.dat  # 北马其顿
+./v2dat unpack geoip -o mosdns_config/mosdns_ip/europe/southern_europe -f pt mosdns_config/geoip.dat  # 葡萄牙
+./v2dat unpack geoip -o mosdns_config/mosdns_ip/europe/southern_europe -f sm mosdns_config/geoip.dat  # 圣马力诺
+./v2dat unpack geoip -o mosdns_config/mosdns_ip/europe/southern_europe -f rs mosdns_config/geoip.dat  # 塞尔维亚
+./v2dat unpack geoip -o mosdns_config/mosdns_ip/europe/southern_europe -f si mosdns_config/geoip.dat  # 斯洛文尼亚
+./v2dat unpack geoip -o mosdns_config/mosdns_ip/europe/southern_europe -f es mosdns_config/geoip.dat  # 西班牙
+./v2dat unpack geoip -o mosdns_config/mosdns_ip/europe/southern_europe -f va mosdns_config/geoip.dat  # 梵蒂冈
+
+# 北欧 (Northern Europe)
+./v2dat unpack geoip -o mosdns_config/mosdns_ip/europe/northern_europe -f dk mosdns_config/geoip.dat  # 丹麦
+./v2dat unpack geoip -o mosdns_config/mosdns_ip/europe/northern_europe -f ee mosdns_config/geoip.dat  # 爱沙尼亚
+./v2dat unpack geoip -o mosdns_config/mosdns_ip/europe/northern_europe -f fi mosdns_config/geoip.dat  # 芬兰
+./v2dat unpack geoip -o mosdns_config/mosdns_ip/europe/northern_europe -f is mosdns_config/geoip.dat  # 冰岛
+./v2dat unpack geoip -o mosdns_config/mosdns_ip/europe/northern_europe -f lv mosdns_config/geoip.dat  # 拉脱维亚
+./v2dat unpack geoip -o mosdns_config/mosdns_ip/europe/northern_europe -f lt mosdns_config/geoip.dat  # 立陶宛
+./v2dat unpack geoip -o mosdns_config/mosdns_ip/europe/northern_europe -f no mosdns_config/geoip.dat  # 挪威
+./v2dat unpack geoip -o mosdns_config/mosdns_ip/europe/northern_europe -f se mosdns_config/geoip.dat  # 瑞典
+./v2dat unpack geoip -o mosdns_config/mosdns_ip/europe/northern_europe -f gg mosdns_config/geoip.dat  # 根西岛
+./v2dat unpack geoip -o mosdns_config/mosdns_ip/europe/northern_europe -f im mosdns_config/geoip.dat  # 马恩岛
+./v2dat unpack geoip -o mosdns_config/mosdns_ip/europe/northern_europe -f je mosdns_config/geoip.dat  # 泽西岛
+./v2dat unpack geoip -o mosdns_config/mosdns_ip/europe/northern_europe -f ax mosdns_config/geoip.dat  # 奥兰群岛
+./v2dat unpack geoip -o mosdns_config/mosdns_ip/europe/northern_europe -f fo mosdns_config/geoip.dat  # 法罗群岛
+./v2dat unpack geoip -o mosdns_config/mosdns_ip/europe/northern_europe -f sj mosdns_config/geoip.dat  # 斯瓦尔巴和扬马延
+
+# 东欧 (Eastern Europe)
+./v2dat unpack geoip -o mosdns_config/mosdns_ip/europe/eastern_europe -f by mosdns_config/geoip.dat  # 白俄罗斯
+./v2dat unpack geoip -o mosdns_config/mosdns_ip/europe/eastern_europe -f bg mosdns_config/geoip.dat  # 保加利亚
+./v2dat unpack geoip -o mosdns_config/mosdns_ip/europe/eastern_europe -f cz mosdns_config/geoip.dat  # 捷克
+./v2dat unpack geoip -o mosdns_config/mosdns_ip/europe/eastern_europe -f hu mosdns_config/geoip.dat  # 匈牙利
+./v2dat unpack geoip -o mosdns_config/mosdns_ip/europe/eastern_europe -f md mosdns_config/geoip.dat  # 摩尔多瓦
+./v2dat unpack geoip -o mosdns_config/mosdns_ip/europe/eastern_europe -f pl mosdns_config/geoip.dat  # 波兰
+./v2dat unpack geoip -o mosdns_config/mosdns_ip/europe/eastern_europe -f ro mosdns_config/geoip.dat  # 罗马尼亚
+./v2dat unpack geoip -o mosdns_config/mosdns_ip/europe/eastern_europe -f ru mosdns_config/geoip.dat  # 俄罗斯
+./v2dat unpack geoip -o mosdns_config/mosdns_ip/europe/eastern_europe -f sk mosdns_config/geoip.dat  # 斯洛伐克
+./v2dat unpack geoip -o mosdns_config/mosdns_ip/europe/eastern_europe -f ua mosdns_config/geoip.dat  # 乌克兰
+./v2dat unpack geoip -o mosdns_config/mosdns_ip/europe/eastern_europe -f xk mosdns_config/geoip.dat  # 科索沃
 
 # ============================================================
 # 北美洲 (North America)
