@@ -1,4 +1,4 @@
-mkdir mosdns_config
+mkdir -p mosdns_config
 cd mosdns_config
 mkdir -p mosdns_ip/asia
 mkdir -p mosdns_ip/europe
@@ -7,7 +7,7 @@ mkdir -p mosdns_ip/south_america
 mkdir -p mosdns_ip/africa
 mkdir -p mosdns_ip/oceania
 mkdir -p mosdns_ip/antarctica
-mkdir mosdns_site
+mkdir -p mosdns_site
 wget https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geoip.dat
 wget https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geosite.dat
 cd ..

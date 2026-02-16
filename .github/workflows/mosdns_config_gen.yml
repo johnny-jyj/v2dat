@@ -5,7 +5,7 @@ name: mosdns_config
 
 on:
   schedule:
-    - cron: '00 15 * * *'
+    - cron: '00 19 * * *'
 
 jobs:
 
@@ -40,6 +40,13 @@ jobs:
         files: |
           mosdns_config/*
           mosdns_config/mosdns_ip/*
+          mosdns_config/mosdns_ip/asia/*
+          mosdns_config/mosdns_ip/europe/*
+          mosdns_config/mosdns_ip/north_america/*
+          mosdns_config/mosdns_ip/south_america/*
+          mosdns_config/mosdns_ip/africa/*
+          mosdns_config/mosdns_ip/oceania/*
+          mosdns_config/mosdns_ip/antarctica/*
           mosdns_config/mosdns_site/*
 
           
