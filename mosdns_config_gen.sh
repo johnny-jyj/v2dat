@@ -74,7 +74,6 @@ cd ..
 ./v2dat unpack geoip -o mosdns_config/mosdns_ip/asia/middle_east -f lb mosdns_config/geoip.dat  # 黎巴嫩
 ./v2dat unpack geoip -o mosdns_config/mosdns_ip/asia/middle_east -f om mosdns_config/geoip.dat  # 阿曼
 ./v2dat unpack geoip -o mosdns_config/mosdns_ip/asia/middle_east -f ps mosdns_config/geoip.dat  # 巴勒斯坦
-./v2dat unpack geoip -o mosdns_config/mosdns_ip/asia/middle_east -f ph mosdns_config/geoip.dat  # 菲律宾
 ./v2dat unpack geoip -o mosdns_config/mosdns_ip/asia/middle_east -f qa mosdns_config/geoip.dat  # 卡塔尔
 ./v2dat unpack geoip -o mosdns_config/mosdns_ip/asia/middle_east -f sa mosdns_config/geoip.dat  # 沙特阿拉伯
 ./v2dat unpack geoip -o mosdns_config/mosdns_ip/asia/middle_east -f sy mosdns_config/geoip.dat  # 叙利亚
@@ -272,6 +271,7 @@ cd ..
 ./v2dat unpack geoip -o mosdns_config/mosdns_ip/africa -f zm mosdns_config/geoip.dat  # 赞比亚
 ./v2dat unpack geoip -o mosdns_config/mosdns_ip/africa -f zw mosdns_config/geoip.dat  # 津巴布韦
 ./v2dat unpack geoip -o mosdns_config/mosdns_ip/africa -f sh mosdns_config/geoip.dat  # 圣赫勒拿
+./v2dat unpack geoip -o mosdns_config/mosdns_ip/africa -f eh mosdns_config/geoip.dat  # 西撒哈拉
 
 # ============================================================
 # 大洋洲 (Oceania)
