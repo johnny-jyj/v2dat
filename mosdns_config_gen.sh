@@ -324,34 +324,14 @@ cd ..
 ./v2dat unpack geoip -o mosdns_config/mosdns_ip -f private mosdns_config/geoip.dat
 
 
-./v2dat unpack geosite  -o mosdns_config/mosdns_site -f cn mosdns_config/geosite.dat
-./v2dat unpack geosite  -o mosdns_config/mosdns_site -f geolocation-cn mosdns_config/geosite.dat
-./v2dat unpack geosite  -o mosdns_config/mosdns_site -f geolocation-!cn mosdns_config/geosite.dat
+# GAME
 ./v2dat unpack geosite  -o mosdns_config/mosdns_site -f category-games@cn mosdns_config/geosite.dat
 ./v2dat unpack geosite  -o mosdns_config/mosdns_site -f category-games mosdns_config/geosite.dat
+./v2dat unpack geosite  -o mosdns_config/mosdns_site -f category-games-!cn mosdns_config/geosite.dat
+./v2dat unpack geosite  -o mosdns_config/mosdns_site -f category-games-cn mosdns_config/geosite.dat
 ./v2dat unpack geosite  -o mosdns_config/mosdns_site -f category-game-accelerator-cn mosdns_config/geosite.dat
-./v2dat unpack geosite  -o mosdns_config/mosdns_site -f category-ads-all mosdns_config/geosite.dat
-./v2dat unpack geosite  -o mosdns_config/mosdns_site -f apple-cn mosdns_config/geosite.dat
-./v2dat unpack geosite  -o mosdns_config/mosdns_site -f tld-cn mosdns_config/geosite.dat
-./v2dat unpack geosite  -o mosdns_config/mosdns_site -f icloud mosdns_config/geosite.dat
-./v2dat unpack geosite  -o mosdns_config/mosdns_site -f github mosdns_config/geosite.dat
-./v2dat unpack geosite  -o mosdns_config/mosdns_site -f docker mosdns_config/geosite.dat
-./v2dat unpack geosite  -o mosdns_config/mosdns_site -f youtube mosdns_config/geosite.dat
-./v2dat unpack geosite  -o mosdns_config/mosdns_site -f google mosdns_config/geosite.dat
-./v2dat unpack geosite  -o mosdns_config/mosdns_site -f openai mosdns_config/geosite.dat
-./v2dat unpack geosite  -o mosdns_config/mosdns_site -f jetbrains mosdns_config/geosite.dat
-./v2dat unpack geosite  -o mosdns_config/mosdns_site -f jetbrains-ai mosdns_config/geosite.dat
-./v2dat unpack geosite  -o mosdns_config/mosdns_site -f telegram mosdns_config/geosite.dat
-./v2dat unpack geosite  -o mosdns_config/mosdns_site -f whatsapp mosdns_config/geosite.dat
-./v2dat unpack geosite  -o mosdns_config/mosdns_site -f meta mosdns_config/geosite.dat
-./v2dat unpack geosite  -o mosdns_config/mosdns_site -f twitter mosdns_config/geosite.dat
-./v2dat unpack geosite  -o mosdns_config/mosdns_site -f instagram mosdns_config/geosite.dat
-./v2dat unpack geosite  -o mosdns_config/mosdns_site -f cloudflare mosdns_config/geosite.dat
-./v2dat unpack geosite  -o mosdns_config/mosdns_site -f cloudfront mosdns_config/geosite.dat
-./v2dat unpack geosite  -o mosdns_config/mosdns_site -f facebook mosdns_config/geosite.dat
-./v2dat unpack geosite  -o mosdns_config/mosdns_site -f fastly mosdns_config/geosite.dat
-./v2dat unpack geosite  -o mosdns_config/mosdns_site -f netflix mosdns_config/geosite.dat
-./v2dat unpack geosite  -o mosdns_config/mosdns_site -f linkedin mosdns_config/geosite.dat
+./v2dat unpack geosite  -o mosdns_config/mosdns_site -f steamunlocked mosdns_config/geosite.dat
+
 ./v2dat unpack geosite  -o mosdns_config/mosdns_site -f ea mosdns_config/geosite.dat
 ./v2dat unpack geosite  -o mosdns_config/mosdns_site -f ubisoft mosdns_config/geosite.dat
 ./v2dat unpack geosite  -o mosdns_config/mosdns_site -f rockstar mosdns_config/geosite.dat
@@ -360,11 +340,52 @@ cd ..
 ./v2dat unpack geosite  -o mosdns_config/mosdns_site -f playstation mosdns_config/geosite.dat
 ./v2dat unpack geosite  -o mosdns_config/mosdns_site -f xbox mosdns_config/geosite.dat
 ./v2dat unpack geosite  -o mosdns_config/mosdns_site -f steam mosdns_config/geosite.dat
+
+# ADS
+./v2dat unpack geosite  -o mosdns_config/mosdns_site -f category-ads-all mosdns_config/geosite.dat
+
+# TLD-CN
+./v2dat unpack geosite  -o mosdns_config/mosdns_site -f tld-cn mosdns_config/geosite.dat
+
+#APPLE
+./v2dat unpack geosite  -o mosdns_config/mosdns_site -f apple-cn mosdns_config/geosite.dat
+./v2dat unpack geosite  -o mosdns_config/mosdns_site -f icloud mosdns_config/geosite.dat
+
+#jetbrain
+./v2dat unpack geosite  -o mosdns_config/mosdns_site -f jetbrains mosdns_config/geosite.dat
+./v2dat unpack geosite  -o mosdns_config/mosdns_site -f jetbrains-ai mosdns_config/geosite.dat
+
+# SOCIAL
+./v2dat unpack geosite  -o mosdns_config/mosdns_site -f telegram mosdns_config/geosite.dat
+./v2dat unpack geosite  -o mosdns_config/mosdns_site -f whatsapp mosdns_config/geosite.dat
+./v2dat unpack geosite  -o mosdns_config/mosdns_site -f meta mosdns_config/geosite.dat
+./v2dat unpack geosite  -o mosdns_config/mosdns_site -f twitter mosdns_config/geosite.dat
+./v2dat unpack geosite  -o mosdns_config/mosdns_site -f instagram mosdns_config/geosite.dat
+./v2dat unpack geosite  -o mosdns_config/mosdns_site -f facebook mosdns_config/geosite.dat
+
+# CDN
+./v2dat unpack geosite  -o mosdns_config/mosdns_site -f cloudflare mosdns_config/geosite.dat
+./v2dat unpack geosite  -o mosdns_config/mosdns_site -f cloudfront mosdns_config/geosite.dat
 ./v2dat unpack geosite  -o mosdns_config/mosdns_site -f akamai mosdns_config/geosite.dat
-./v2dat unpack geosite  -o mosdns_config/mosdns_site -f steamunlocked mosdns_config/geosite.dat
+./v2dat unpack geosite  -o mosdns_config/mosdns_site -f fastly mosdns_config/geosite.dat
+
+# gfw
 ./v2dat unpack geosite  -o mosdns_config/mosdns_site -f gfw mosdns_config/geosite.dat
+
+# 常用
+./v2dat unpack geosite  -o mosdns_config/mosdns_site -f youtube mosdns_config/geosite.dat
+./v2dat unpack geosite  -o mosdns_config/mosdns_site -f google mosdns_config/geosite.dat
+./v2dat unpack geosite  -o mosdns_config/mosdns_site -f netflix mosdns_config/geosite.dat
+./v2dat unpack geosite  -o mosdns_config/mosdns_site -f linkedin mosdns_config/geosite.dat
+./v2dat unpack geosite  -o mosdns_config/mosdns_site -f docker mosdns_config/geosite.dat
 ./v2dat unpack geosite  -o mosdns_config/mosdns_site -f gravatar mosdns_config/geosite.dat
 ./v2dat unpack geosite  -o mosdns_config/mosdns_site -f microsoft mosdns_config/geosite.dat
+
+## CN
+./v2dat unpack geosite  -o mosdns_config/mosdns_site -f cn mosdns_config/geosite.dat
+./v2dat unpack geosite  -o mosdns_config/mosdns_site -f geolocation-cn mosdns_config/geosite.dat
+./v2dat unpack geosite  -o mosdns_config/mosdns_site -f geolocation-!cn mosdns_config/geosite.dat
+
 ./v2dat unpack geosite  -o mosdns_config/mosdns_site -f alibaba mosdns_config/geosite.dat
 ./v2dat unpack geosite  -o mosdns_config/mosdns_site -f alibabacloud mosdns_config/geosite.dat
 ./v2dat unpack geosite  -o mosdns_config/mosdns_site -f aliyun mosdns_config/geosite.dat
@@ -397,17 +418,31 @@ cd ..
 ./v2dat unpack geosite  -o mosdns_config/mosdns_site -f lenovo mosdns_config/geosite.dat
 ./v2dat unpack geosite  -o mosdns_config/mosdns_site -f xiaohongshu mosdns_config/geosite.dat
 
+## AI
 ./v2dat unpack geosite  -o mosdns_config/mosdns_site -f category-ai-!cn mosdns_config/geosite.dat
 ./v2dat unpack geosite  -o mosdns_config/mosdns_site -f category-ai-cn mosdns_config/geosite.dat
+./v2dat unpack geosite  -o mosdns_config/mosdns_site -f openai mosdns_config/geosite.dat
 
+## webdisk
 ./v2dat unpack geosite  -o mosdns_config/mosdns_site -f mega mosdns_config/geosite.dat
 
+## jp
 ./v2dat unpack geosite  -o mosdns_config/mosdns_site -f dmm mosdns_config/geosite.dat
 ./v2dat unpack geosite  -o mosdns_config/mosdns_site -f abema mosdns_config/geosite.dat
 ./v2dat unpack geosite  -o mosdns_config/mosdns_site -f tver mosdns_config/geosite.dat
 ./v2dat unpack geosite  -o mosdns_config/mosdns_site -f japonx mosdns_config/geosite.dat
 ./v2dat unpack geosite  -o mosdns_config/mosdns_site -f niconico mosdns_config/geosite.dat
 ./v2dat unpack geosite  -o mosdns_config/mosdns_site -f line mosdns_config/geosite.dat
+
+## porn
+./v2dat unpack geosite  -o mosdns_config/mosdns_site -f ehentai mosdns_config/geosite.dat
+./v2dat unpack geosite  -o mosdns_config/mosdns_site -f missav mosdns_config/geosite.dat
+./v2dat unpack geosite  -o mosdns_config/mosdns_site -f pornhub mosdns_config/geosite.dat
+
+##dev
+./v2dat unpack geosite  -o mosdns_config/mosdns_site -f github mosdns_config/geosite.dat
+./v2dat unpack geosite  -o mosdns_config/mosdns_site -f category-dev mosdns_config/geosite.dat
+./v2dat unpack geosite  -o mosdns_config/mosdns_site -f category-dev-cn mosdns_config/geosite.dat
 
 mv mosdns_config/mosdns_site/cn.txt mosdns_config/mosdns_site/cn_site.txt
 cp mosdns_config/mosdns_ip/asia/east_asia/cn.txt mosdns_config/mosdns_ip/cn_ip.txt
