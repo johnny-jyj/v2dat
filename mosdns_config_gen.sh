@@ -14,6 +14,7 @@ mkdir -p mosdns_ip/africa
 mkdir -p mosdns_ip/oceania
 mkdir -p mosdns_ip/antarctica
 mkdir -p mosdns_site
+mkdir -p mosdns_asn
 wget https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geoip.dat
 wget https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geosite.dat
 cd ..
@@ -444,6 +445,12 @@ cd ..
 ./v2dat unpack geosite  -o mosdns_config/mosdns_site -f category-dev mosdns_config/geosite.dat
 ./v2dat unpack geosite  -o mosdns_config/mosdns_site -f category-dev-cn mosdns_config/geosite.dat
 
+## asns
+wget -O mosdns_asn/peekabo.txt https://as.090227.xyz/AS402075
+wget -O mosdns_asn/neburst.txt https://as.090227.xyz/AS8143
+wget -O mosdns_asn/gomami.txt https://as.090227.xyz/AS36002
+wget -O mosdns_asn/sharon.txt https://as.090227.xyz/AS396856
+
 mv mosdns_config/mosdns_site/cn.txt mosdns_config/mosdns_site/cn_site.txt
 cp mosdns_config/mosdns_ip/asia/east_asia/cn.txt mosdns_config/mosdns_ip/cn_ip.txt
 mv mosdns_config/mosdns_site/cloudflare.txt mosdns_config/mosdns_site/cloudflare_site.txt
@@ -474,3 +481,4 @@ wget https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/ge
 cd ..
 
 cp mosdns_rule.zip mosdns_config/
+

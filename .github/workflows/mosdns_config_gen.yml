@@ -54,5 +54,6 @@ jobs:
           mosdns_config/mosdns_ip/oceania/*
           mosdns_config/mosdns_ip/antarctica/*
           mosdns_config/mosdns_site/*
+          mosdns_config/mosdns_asn/*
 
           
