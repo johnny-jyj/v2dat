@@ -410,7 +410,7 @@ cd ..
 ./v2dat unpack geosite  -o mosdns_config/mosdns_site -f line mosdns_config/geosite.dat
 
 mv mosdns_config/mosdns_site/cn.txt mosdns_config/mosdns_site/cn_site.txt
-mv mosdns_config/mosdns_ip/asia/east_asia/cn.txt mosdns_config/mosdns_ip/cn_ip.txt
+cp mosdns_config/mosdns_ip/asia/east_asia/cn.txt mosdns_config/mosdns_ip/cn_ip.txt
 mv mosdns_config/mosdns_site/cloudflare.txt mosdns_config/mosdns_site/cloudflare_site.txt
 mv mosdns_config/mosdns_ip/cloudflare.txt mosdns_config/mosdns_ip/cloudflare_ip.txt
 mv mosdns_config/mosdns_site/cloudfront.txt mosdns_config/mosdns_site/cloudfront_site.txt
