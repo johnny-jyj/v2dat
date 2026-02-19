@@ -446,10 +446,10 @@ cd ..
 ./v2dat unpack geosite  -o mosdns_config/mosdns_site -f category-dev-cn mosdns_config/geosite.dat
 
 ## asns
-wget -O mosdns_asn/peekabo.txt https://as.090227.xyz/AS402075
-wget -O mosdns_asn/neburst.txt https://as.090227.xyz/AS8143
-wget -O mosdns_asn/gomami.txt https://as.090227.xyz/AS36002
-wget -O mosdns_asn/sharon.txt https://as.090227.xyz/AS396856
+wget -O mosdns_config/mosdns_asn/peekabo.txt https://as.090227.xyz/AS402075
+wget -O mosdns_config/mosdns_asn/neburst.txt https://as.090227.xyz/AS8143
+wget -O mosdns_config/mosdns_asn/gomami.txt https://as.090227.xyz/AS36002
+wget -O mosdns_config/mosdns_asn/sharon.txt https://as.090227.xyz/AS396856
 
 mv mosdns_config/mosdns_site/cn.txt mosdns_config/mosdns_site/cn_site.txt
 cp mosdns_config/mosdns_ip/asia/east_asia/cn.txt mosdns_config/mosdns_ip/cn_ip.txt
