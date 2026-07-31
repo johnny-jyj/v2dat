@@ -15,8 +15,9 @@ mkdir -p mosdns_ip/oceania
 mkdir -p mosdns_ip/antarctica
 mkdir -p mosdns_site
 mkdir -p mosdns_asn
-wget https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geoip.dat
-wget https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geosite.dat
+# geoip.dat/geosite.dat 是后面所有 unpack 的根本输入，下不到就直接 error（否则会打出空内容的坏包）
+wget https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geoip.dat || exit 1
+wget https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geosite.dat || exit 1
 cd ..
 
 # ============================================================
@@ -323,7 +324,10 @@ cd ..
 ./v2dat unpack geoip -o mosdns_config/mosdns_ip -f telegram mosdns_config/geoip.dat
 ./v2dat unpack geoip -o mosdns_config/mosdns_ip -f twitter mosdns_config/geoip.dat
 ./v2dat unpack geoip -o mosdns_config/mosdns_ip -f private mosdns_config/geoip.dat
+# note: align with Loyalsoldier, 把新加的类也转出来
+./v2dat unpack geoip -o mosdns_config/mosdns_ip -f tor mosdns_config/geoip.dat
 
+# geosite start
 
 # GAME
 ./v2dat unpack geosite  -o mosdns_config/mosdns_site -f category-games@cn mosdns_config/geosite.dat
@@ -445,7 +449,42 @@ cd ..
 ./v2dat unpack geosite  -o mosdns_config/mosdns_site -f category-dev mosdns_config/geosite.dat
 ./v2dat unpack geosite  -o mosdns_config/mosdns_site -f category-dev-cn mosdns_config/geosite.dat
 
-## asns
+## developers.facebook.com 从 dev 剔除：它只是 Meta 开发者门户(Graph API/应用控制台/SDK/webhook)，
+## 不开发 FB 插件就用不到。剔除后由 social_video(facebook_site 的 facebook.com 后缀) 收 -> hk2，
+## 与 facebook 行为统一；否则 dev_site 在 main_sequence 先于 social_video，会把它抢去地区级联造成双 FA
+# note: meta 相关逻辑目前都不启用
+# sed -i '/developers\.facebook\.com/d' mosdns_config/mosdns_site/category-dev.txt
+
+## §3 social_video 追加「实测落在 Meta 自有 AS32934 边缘」的其余 Meta 域名（DoH + ASN 实测）：
+##   threads.net 185.60.218.x / threads.com 57.144.206.x、www.oculus.com->oculus.c10r.facebook.com 157.240.241.x、
+##   messenger.com 157.240.27.x、meta.com 157.240.11.x、workplace.com 57.144.204.x、meta.ai 57.144.202.x、llama.com 185.60.218.x，
+##   全落 157.240.0.0/16 + 57.144.0.0/14 + 185.60.216.0/22 —— 与 facebook 同一张边缘 VIP 池、可能复用同一 /32，
+##   必须与 facebook 同 FA(hk2)，否则区域路径会把同 /32 劈成 hk2 vs us/jp 双 FA。meta.ai/llama.com 在 AS32934，
+##   同样进 hk2（不能进 ai_site->us，否则与 facebook 复用同 /32 双 FA）。
+##   ⚠ 只手列 AS32934 自有边缘域名、**不整包用 meta.txt**：Meta 的 OSS/文档站(react/reactjs/recoil/rocksdb/yoga/
+##   flow/flowtype/hhvm/fbinfer/fblitho/fbredex/frescolib/hacklang/draftjs/fasttext/buck/mcrouter/ogp/opengraphprotocol/
+##   parse/pyrobot/makeitopen…) 全在第三方共享 CDN(Cloudflare AS13335 / Vercel AS16509 / GitHub Pages 185.199.108/22)，
+##   它们与 hk2 成员(Meta/Twitter/Netflix/Google)AS 完全不相交、本就 region 路由不会撞；但若误进 hk2 会与同 CDN
+##   其他租户(非 Meta 站)同 /32 撞 FA，故绝不并入。react.* 另在 category-dev -> dev_site 已按区处理。
+## ⚠ 整组同进退、**不能单拎一个域名走**：这些全在 Meta 自有 AS32934 同一张边缘 VIP 池里轮换（和 facebook/ig/wa 共用），
+##   FA 是按「解析到的 /32」决定的——同一个 /32 今天可能解析自 facebook、明天解析自 llama。所以只要 facebook 在 hk2，
+##   meta.ai/llama.com 就**必须**也在 hk2。单独删 llama.com 这行让它走 $final/区域，只会让它落到的某个 Meta /32 同时被
+##   hk2(facebook) 和 hk1/us(llama) 两个 FA 占用 = 我们这轮一直在消灭的 split-brain（verify_fa.py 报 ERROR）。
+##   真要把 Meta 边缘挪出 hk2，得**整组 AS32934（连 facebook/ig/wa）一起挪**——那是另一个大决策，不是删一行。
+##   （补充：llama.com 只是门户、流量很小；真正下模型走的是另外的下载 CDN、按区域独立路由，没有"高频"理由非挪它。）
+# note: meta 相关逻辑目前都不启用
+#cat > mosdns_config/mosdns_site/meta_net.txt <<'EOF'
+#threads.net
+#threads.com
+#oculus.com
+#messenger.com
+#meta.com
+#workplace.com
+#meta.ai
+#llama.com
+#EOF
+
+## asn list, special asn to process
 wget -O mosdns_config/mosdns_asn/peekabo.txt https://as.090227.xyz/AS402075
 wget -O mosdns_config/mosdns_asn/neburst.txt https://as.090227.xyz/AS8143
 wget -O mosdns_config/mosdns_asn/gomami.txt https://as.090227.xyz/AS36002
@@ -471,13 +510,141 @@ mv mosdns_config/mosdns_site/twitter.txt mosdns_config/mosdns_site/twitter_site.
 mv mosdns_config/mosdns_ip/twitter.txt mosdns_config/mosdns_ip/twitter_ip.txt
 mv mosdns_config/mosdns_ip/private.txt mosdns_config/mosdns_ip/private_ip.txt
 
+# ============================================================
+# §6 CDN IP 抽取 + CloudFront/AWS 按国家分类（纯数据，不读 yaml、不认识 FA、不做区域分区）
+# 必须在上面那批 mv（重命名 *_ip.txt）之后、rm/zip 之前。
+# 注：区域聚合(hk/jp/us/eu_region)、hk_cdn_ip、aws_hk_ip 已移除（流量分区改由上层自行处理）。
+#     产出的原始素材（供上层 yaml 自行拼流量区块）：
+#       - cloudfront_global.txt         CloudFront 全局边缘池 = 需探测的输入（⓪ 从 ip-ranges 抽）
+#       - cloudfront_region/<cc>.txt    CloudFront 具体 region 段按国家（权威，无需探测；⓪ 产出）
+#       - cloudfront_origin_facing.txt  CloudFront 回源出口段（存档；⓪ 产出）
+#       - ga_anycast.txt                Global Accelerator 真 anycast 段（就近直连、不探不分国；⓪ 产出）
+#       - cloudfront_pop/<cc>.txt       CloudFront 按真实 POP 国家（快版探 global，每次打包；见①）
+#       - cloudfront_pop_full/<cc>.txt + no_response.txt  逐 IP 全量抓取（可选，见①.5，低频单独跑）
+#       - aws_cc/<cc>.txt               AWS 按 region→国家（权威，无需探测；见④）
+#       - cdn_ip_all.txt / gfe_ip.txt / azure_fd_ip.txt   CDN 全集 / GFE / Azure FD
+#       - geoip 的 mosdns_ip/<洲>/<国>.txt（各国段）
+# ============================================================
+IPDIR=mosdns_config/mosdns_ip
+
+# 机场库 CSV（IATA->国家）：和 geoip/asn 一样在这儿统一 wget 到本地，py 只读它、不再自己联网（URL 不藏在 py 里）。
+wget -O $IPDIR/airport-codes.csv \
+  https://raw.githubusercontent.com/datasets/airport-codes/master/data/airport-codes.csv
+
+# ⓪ 从 AWS 官方 ip-ranges.json 拆 CloudFront / Global Accelerator（权威、几秒）：
+#   实测 Loyalsoldier 的 cloudfront == AWS 官方 CLOUDFRONT+ORIGIN_FACING（覆盖 IP 100% 相同），故用官方源、
+#   且自带 GLOBAL/region 标签。有 region 的直接权威分国、只有 GLOBAL 才需探测：
+#     - cloudfront_global.txt        CLOUDFRONT 的 GLOBAL 全局边缘池 = **唯一需要探测**的部分（①/①.5 的输入）
+#     - cloudfront_region/<cc>.txt   CLOUDFRONT 具体 region 段按国家（权威，独立，不必探）
+#     - cloudfront_origin_facing.txt CLOUDFRONT_ORIGIN_FACING 回源出口段（存档，一般不进客户端路由）
+#     - ga_anycast.txt               GLOBALACCELERATOR = 真 anycast（BGP 就近入网，像 Cloudflare/GFE，
+#                                    见 gen_cloudfront_split.py 头部官方链接）；整体存档、就近直连、不探不分国
+python3 "$(dirname "$0")/gen_cloudfront_split.py" \
+  --aws-json https://ip-ranges.amazonaws.com/ip-ranges.json \
+  --out-global $IPDIR/cloudfront_global.txt \
+  --out-region-dir $IPDIR/cloudfront_region \
+  --out-origin-facing $IPDIR/cloudfront_origin_facing.txt \
+  --out-ga $IPDIR/ga_anycast.txt || exit 1
+
+# ① CloudFront 全局边缘池按真实 POP 国家分类（快版，每次打包）：
+#   geoip 把大量 CloudFront 边缘段标错国家（如香港 POP 段被标 US）。gen_cloudfront_pop.py 探测每个 /24 的
+#   x-amz-cf-pop（POP 城市，权威）-> IATA -> 国家，每国落 mosdns_ip/cloudfront_pop/<cc>.txt。**只探 ⓪ 抽出的
+#   cloudfront_global.txt**（region 段已由 ⓪ 权威分好，无需探）。IATA->国家读上面 wget 的 --iata-db（拿不到 CSV 直接报错退出，不退化）。
+#   只处理 IPv4；网络退化自动跳过。
+#   CSV 拿不到 -> gen_cloudfront_pop 的 build_iata_db 直接 error 退出，这里 || exit 1 中断整包（正确性第一，
+#   宁可不打包也不要产出缺 cloudfront_pop 的坏包）。若探不到 POP（纯网络退化）脚本自身返回 0，不会误伤。
+python3 "$(dirname "$0")/gen_cloudfront_pop.py" \
+  --cloudfront-ip $IPDIR/cloudfront_global.txt \
+  --out-dir $IPDIR/cloudfront_pop \
+  --iata-db $IPDIR/airport-codes.csv \
+  --concurrency 64 --timeout 5 || exit 1
+
+# ①.5（可选，低频单独跑，别放进每次打包）逐 IP 全量抓取版：把 cloudfront_global 每个 IP 都探一遍，
+#   **不做 /24 假设**——有响应按 cf-pop 国家、相邻同国能合多大合多大；探了没响应的 IP 单列 no_response.txt；
+#   .0/.255 仅在同国 /24 内桥接。几小时级、带断点续跑(--cache 必填，可随时 Ctrl-C 续跑；合并流式读 --cache)。
+#   用独立 out-dir，别让①的快版覆盖。--cache 不存在会自动建；--iata-db 用上面 wget 的机场库。仅重合并加 --merge-only。
+# python3 "$(dirname "$0")/gen_cloudfront_pop_full.py" \
+#   --cloudfront-ip $IPDIR/cloudfront_global.txt \
+#   --out-dir $IPDIR/cloudfront_pop_full \
+#   --cache $IPDIR/cft_pop_full_cache.tsv \
+#   --iata-db $IPDIR/airport-codes.csv \
+#   --concurrency 256 --timeout 3
+
+# ①.6（可选）对照 快版 vs full 版，查快版 /24 假设有没有漏网（独立脚本，只读①/①.5 产物+缓存，不重探）：
+#   跨 POP 的 /24 = 快版会整段误判的漏网点，为 0 则说明快版「一个 /24 = 一个 POP」假设全对。
+# python3 "$(dirname "$0")/cft_pop_compare.py" \
+#   --quick-dir $IPDIR/cloudfront_pop --full-dir $IPDIR/cloudfront_pop_full \
+#   --full-cache $IPDIR/cft_pop_full_cache.tsv --iata-db $IPDIR/airport-codes.csv
+
+## social_video 自有 IP 段（仅存档/备查，yaml 不引用）：
+##   whatsapp/instagram/facebook 同属 Meta AS32934（IP 层无法拆分，facebook_ip 即整段 Meta）；
+##   twitter AS13414、netflix AS2906；googlevideo 是 Google 子集、无独立 geoip 类目，故不含。
+# note video 相关逻辑先不启用
+#cat $IPDIR/facebook_ip.txt $IPDIR/twitter_ip.txt $IPDIR/netflix_ip.txt > $IPDIR/social_video_ip.txt
+
+# —— 各 CDN 的 IP 来源与官方源对照（2026-07 实测；现在先不切官方，留注释方便以后改）——
+#   cloudflare / cloudfront / fastly：现在取自 geoip.dat（Loyalsoldier，见前面 v2dat unpack）。实测 vs 各自官方源：
+#     cloudfront  Loyalsoldier == AWS 官方 CLOUDFRONT+ORIGIN_FACING（100% 相同）；本项目已改从 AWS ip-ranges 直取（见 ⓪）
+#     cloudflare  官方 v4≈1,524,736  Loyalsoldier≈1,942,016  交集=官方全部  仅官方=0  仅Loyalsoldier≈417,280（超集，偏宽）
+#     fastly      官方 v4≈  304,128  Loyalsoldier≈  374,528  交集=官方全部  仅官方=0  仅Loyalsoldier≈ 70,400（超集，偏宽）
+#   => Loyalsoldier 是官方的「超集」（含官方 100%，另多收了非边缘段）。要更精确可切各自官方源（现成、更实时）：
+#     cloudflare : https://www.cloudflare.com/ips-v4   和   https://www.cloudflare.com/ips-v6   （纯文本，一行一个 CIDR）
+#     fastly     : https://api.fastly.com/public-ip-list                                        （JSON: {addresses[], ipv6_addresses[]}）
+#     cloudfront : https://ip-ranges.amazonaws.com/ip-ranges.json（service=CLOUDFRONT；本项目 ⓪ 已用官方）
+#   要切：把前面 geoip unpack 的 cloudflare/fastly 换成 wget 上述 URL 落成 *_ip.txt 即可（cloudfront 已是官方，无需动）。
+#
+# ② 大 CDN 的 ASN 段（没有规范官方全量列表的那几家，用 as.090227.xyz 按 ASN 抽即可，够用；
+#   bunny 另有可选官方 edge API https://api.bunny.net/system/edgeserverlist，想更准可换）。一行一个 CDN，增删即改此表：
+declare -A CDN_ASN=(
+  [akamai]="AS20940 AS16625"      # Akamai
+  [edgio]="AS15133 AS22822"       # Edgio/EdgeCast + Limelight
+  [gcore]="AS199524"              # Gcore
+  [cdn77]="AS60068"               # CDN77
+  [bunny]="AS200325"              # BunnyCDN
+)
+for name in "${!CDN_ASN[@]}"; do
+  : > $IPDIR/${name}_ip.txt
+  for asn in ${CDN_ASN[$name]}; do wget -qO- https://as.090227.xyz/$asn >> $IPDIR/${name}_ip.txt; done
+done
+
+# ③ 抽 CDN IP 全集：cdn_ip_all = 各 CDN ∪ gfe(goog−cloud) ∪ azure_fd(ServiceTags)。均在 py 内处理。
+#    gen_cdn_sets.py 与本脚本同目录；只做拉源/合并/落盘，不做区域分区。gfe/azure/cdn_ip_all 供上层分区/verify。
+python3 "$(dirname "$0")/gen_cdn_sets.py" \
+  --cdn $IPDIR/cloudflare_ip.txt $IPDIR/cloudfront_ip.txt $IPDIR/fastly_ip.txt \
+        $IPDIR/akamai_ip.txt $IPDIR/edgio_ip.txt $IPDIR/gcore_ip.txt $IPDIR/cdn77_ip.txt $IPDIR/bunny_ip.txt \
+  --gfe-from-google --azure-front-door \
+  --out-cdn-all $IPDIR/cdn_ip_all.txt \
+  --out-gfe $IPDIR/gfe_ip.txt --out-azure $IPDIR/azure_fd_ip.txt || exit 1
+
+# ④ AWS 按 region→国家分类（权威、无需探测、几秒钟）：ip-ranges.json 每条前缀自带 region，region 是地理
+#   固定的单播（ap-east-1=香港、ap-northeast-1=东京、us-*=美国…），直接映射到国家。已排除
+#   CLOUDFRONT/GLOBALACCELERATOR（边缘/anycast，已由 ⓪ gen_cloudfront_split.py 单独拆分处理）。每国落 aws_cc/<cc>.txt。
+#   region→国家表见 gen_aws_region.AWS_REGION2CC；已补 ap-east-2=台北(TW)、ap-southeast-6=新西兰(NZ)、
+#   eusc-de-east-1=主权云德国(DE)、sa-west-1=智利(CL)、us-south-1=美国。me-west-1 官方 region 表暂无、归属未定，
+#   故不映射（脚本会 [WARN] 告警，将来 AWS 明确了补一行即可）。
+#   想要更细（区分 us-east/us-west 等）就把 --group 换成 region -> aws_cc/<region>.txt。网络退化自动跳过。
+python3 "$(dirname "$0")/gen_aws_region.py" \
+  --aws-json https://ip-ranges.amazonaws.com/ip-ranges.json \
+  --out-dir $IPDIR/aws_cc --group country || exit 1
+
+# ⑤（可选，默认不开）Azure 按 region→国家：ServiceTags 每条自带 region（eastasia=香港、japaneast=东京、
+#   taiwannorth=台湾…），能像 AWS 一样权威分国。但规模很大（实测 77 region / ~4.5 万条前缀），且这些是 Azure
+#   云主机段（不是 CDN），故默认注释、按需开启。AzureFrontDoor/CDN 那批全球 anycast 边缘不在这里、已由 ③ 的
+#   azure_fd 收（gen_azure_region.py 会自动跳过）。默认自动发现 ServiceTags；产出 aws 同款 azure_cc/<cc>.txt。
+# python3 "$(dirname "$0")/gen_azure_region.py" \
+#   --out-dir $IPDIR/azure_cc
+
 rm mosdns_config/geosite.dat
 rm mosdns_config/geoip.dat
-zip -r mosdns_rule.zip mosdns_config/
+# airport-codes.csv 只是 ①/④ 用的 IATA->国家中间输入（~5MB），不进最终发布包
+rm -f mosdns_config/mosdns_ip/airport-codes.csv
+zip -r mosdns_rule.zip mosdns_config/ || { echo "[FATAL] zip 打包失败"; exit 1; }
+# 没打成功包（zip 缺失或为空）就直接 error，绝不产出坏包
+[ -s mosdns_rule.zip ] || { echo "[FATAL] mosdns_rule.zip 未生成或为空"; exit 1; }
 
 cd mosdns_config
 wget https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geoip.dat
 wget https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geosite.dat
 cd ..
 
-cp mosdns_rule.zip mosdns_config/
+cp mosdns_rule.zip mosdns_config/ || exit 1
