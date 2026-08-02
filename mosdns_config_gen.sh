@@ -519,8 +519,9 @@ mv mosdns_config/mosdns_ip/private.txt mosdns_config/mosdns_ip/private_ip.txt
 #       - cloudfront_region/<cc>.txt    CloudFront 具体 region 段按国家（权威，无需探测；⓪ 产出）
 #       - cloudfront_origin_facing.txt  CloudFront 回源出口段（存档；⓪ 产出）
 #       - ga_anycast.txt                Global Accelerator 真 anycast 段（就近直连、不探不分国；⓪ 产出）
-#       - cloudfront_pop/<cc>.txt       CloudFront 按真实 POP 国家（快版探 global，每次打包；见①）
-#       - cloudfront_pop_full/<cc>.txt + no_response.txt  逐 IP 全量抓取（可选，见①.5，低频单独跑）
+#       - cloudfront_pop/<cc>.txt + no_response.txt/unknown_iata.txt  CloudFront 按真实 POP 国家
+#                                       （快版探 global，每次打包；见①。后两个文件不进路由，只供①.6 对照）
+#       - cloudfront_pop_full/<cc>.txt + no_response.txt/unknown_iata.txt  逐 IP 全量抓取（可选，见①.5，低频单独跑）
 #       - aws_cc/<cc>.txt               AWS 按 region→国家（权威，无需探测；见④）
 #       - cdn_ip_all.txt / gfe_ip.txt / azure_fd_ip.txt   CDN 全集 / GFE / Azure FD
 #       - geoip 的 mosdns_ip/<洲>/<国>.txt（各国段）
@@ -553,11 +554,17 @@ python3 "$(dirname "$0")/gen_cloudfront_split.py" \
 #   只处理 IPv4；网络退化自动跳过。
 #   CSV 拿不到 -> gen_cloudfront_pop 的 build_iata_db 直接 error 退出，这里 || exit 1 中断整包（正确性第一，
 #   宁可不打包也不要产出缺 cloudfront_pop 的坏包）。若探不到 POP（纯网络退化）脚本自身返回 0，不会误伤。
+#   --max-probes-per-24：每个 /24 依次试 .1 -> .129 -> .65 … 最多 8 个代表 IP，命中即停；全不应答才落 no_response.txt。
+#     只试 .1 的话，.1 恰好不应答就整段白丢：拿 full 缓存重放实测 16,423 个单元里，只试 1 个 = 10,567 段命中，
+#     试 8 个 = 10,819 段（连整个 CN 的 POP 段都是这么捡回来的，那几段 .1 不应答），试满 254 个 = 10,864 段。
+#     代价全落在整段全死的 /24 上（每段白试满 8 次），探测次数 16,423 -> 56,343，所以并发从 64 提到 256
+#     （和 ①.5 full 版同档），墙钟仍是十几分钟量级。想更省就调小 K，目前 100%  --max-probes-per-24 0 (只有 1% 会整个 /24）
 python3 "$(dirname "$0")/gen_cloudfront_pop.py" \
   --cloudfront-ip $IPDIR/cloudfront_global.txt \
   --out-dir $IPDIR/cloudfront_pop \
   --iata-db $IPDIR/airport-codes.csv \
-  --concurrency 64 --timeout 5 || exit 1
+  --max-probes-per-24 0 \
+  --concurrency 256 --timeout 5 || exit 1
 
 # ①.5（可选，低频单独跑，别放进每次打包）逐 IP 全量抓取版：把 cloudfront_global 每个 IP 都探一遍，
 #   **不做 /24 假设**——有响应按 cf-pop 国家、相邻同国能合多大合多大；探了没响应的 IP 单列 no_response.txt；
@@ -571,7 +578,10 @@ python3 "$(dirname "$0")/gen_cloudfront_pop.py" \
 #   --concurrency 256 --timeout 3
 
 # ①.6（可选）对照 快版 vs full 版，查快版 /24 假设有没有漏网（独立脚本，只读①/①.5 产物+缓存，不重探）：
-#   跨 POP 的 /24 = 快版会整段误判的漏网点，为 0 则说明快版「一个 /24 = 一个 POP」假设全对。
+#   跨 POP 的 /24 = 快版会整段误判的漏网点，**用「逐 IP 缓存」和「full 产物 <cc>.txt」两条路径各算一遍互相印证**，
+#   两边都为 0 才说明快版「一个 /24 = 一个 POP」假设全对。
+#   每国那张表里「仅快版」还会按 full 的 no_response.txt / unknown_iata.txt 拆开：只有 X（full 判给别国）才是真误判，
+#   nr（full 探过无响应、快版按 /24 整段填充）属预期行为。2026-08 实测：X=0，多算的 99.98% 都是 nr。
 # python3 "$(dirname "$0")/cft_pop_compare.py" \
 #   --quick-dir $IPDIR/cloudfront_pop --full-dir $IPDIR/cloudfront_pop_full \
 #   --full-cache $IPDIR/cft_pop_full_cache.tsv --iata-db $IPDIR/airport-codes.csv

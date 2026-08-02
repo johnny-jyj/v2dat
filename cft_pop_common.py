@@ -70,6 +70,7 @@ IATA2CC = {
     "HKG": "HK", "TPE": "TW",
     "NRT": "JP", "KIX": "JP", "TYO": "JP", "ITM": "JP",
     "ICN": "KR", "SEL": "KR", "GMP": "KR",
+    "BJS": "CN",
     # 东南亚 / 南亚
     "SIN": "SG", "KUL": "MY", "JHB": "MY", "BKK": "TH", "CGK": "ID", "JKT": "ID",
     "MNL": "PH", "HAN": "VN", "SGN": "VN",
