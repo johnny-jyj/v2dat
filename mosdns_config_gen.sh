@@ -563,7 +563,7 @@ python3 "$(dirname "$0")/gen_cloudfront_pop.py" \
   --cloudfront-ip $IPDIR/cloudfront_global.txt \
   --out-dir $IPDIR/cloudfront_pop \
   --iata-db $IPDIR/airport-codes.csv \
-  --max-probes-per-24 0 \
+  --max-probes-per-24 254 \
   --concurrency 256 --timeout 5 || exit 1
 
 # ①.5（可选，低频单独跑，别放进每次打包）逐 IP 全量抓取版：把 cloudfront_global 每个 IP 都探一遍，
