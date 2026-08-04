@@ -563,8 +563,8 @@ python3 "$(dirname "$0")/gen_cloudfront_pop.py" \
   --cloudfront-ip $IPDIR/cloudfront_global.txt \
   --out-dir $IPDIR/cloudfront_pop \
   --iata-db $IPDIR/airport-codes.csv \
-  --max-probes-per-24 254 \
-  --concurrency 256 --timeout 5 || exit 1
+  --max-probes-per-24 0 \
+  --concurrency 8192 --timeout 5 || exit 1
 
 # ①.5（可选，低频单独跑，别放进每次打包）逐 IP 全量抓取版：把 cloudfront_global 每个 IP 都探一遍，
 #   **不做 /24 假设**——有响应按 cf-pop 国家、相邻同国能合多大合多大；探了没响应的 IP 单列 no_response.txt；
@@ -575,7 +575,7 @@ python3 "$(dirname "$0")/gen_cloudfront_pop.py" \
 #   --out-dir $IPDIR/cloudfront_pop_full \
 #   --cache $IPDIR/cft_pop_full_cache.tsv \
 #   --iata-db $IPDIR/airport-codes.csv \
-#   --concurrency 256 --timeout 3
+#   --concurrency 10240 --timeout 3
 
 # ①.6（可选）对照 快版 vs full 版，查快版 /24 假设有没有漏网（独立脚本，只读①/①.5 产物+缓存，不重探）：
 #   跨 POP 的 /24 = 快版会整段误判的漏网点，**用「逐 IP 缓存」和「full 产物 <cc>.txt」两条路径各算一遍互相印证**，
@@ -637,12 +637,12 @@ python3 "$(dirname "$0")/gen_aws_region.py" \
   --aws-json https://ip-ranges.amazonaws.com/ip-ranges.json \
   --out-dir $IPDIR/aws_cc --group country || exit 1
 
-# ⑤（可选，默认不开）Azure 按 region→国家：ServiceTags 每条自带 region（eastasia=香港、japaneast=东京、
+# ⑤（可选，默认开）Azure 按 region→国家：ServiceTags 每条自带 region（eastasia=香港、japaneast=东京、
 #   taiwannorth=台湾…），能像 AWS 一样权威分国。但规模很大（实测 77 region / ~4.5 万条前缀），且这些是 Azure
 #   云主机段（不是 CDN），故默认注释、按需开启。AzureFrontDoor/CDN 那批全球 anycast 边缘不在这里、已由 ③ 的
 #   azure_fd 收（gen_azure_region.py 会自动跳过）。默认自动发现 ServiceTags；产出 aws 同款 azure_cc/<cc>.txt。
-# python3 "$(dirname "$0")/gen_azure_region.py" \
-#   --out-dir $IPDIR/azure_cc
+ python3 "$(dirname "$0")/gen_azure_region.py" \
+   --out-dir $IPDIR/azure_cc
 
 rm mosdns_config/geosite.dat
 rm mosdns_config/geoip.dat
